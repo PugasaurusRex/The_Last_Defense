@@ -1,0 +1,11 @@
+- The player can move forward, backward, left, and right.
+- The player will shoot in the direction of the mouse with the selected weapon.
+- The camera will be able to zoom in on the player and out for an overview of the map.
+	It will center on the player as it is zoomed in and center on the map as it zooms out.
+- The player will be able to open and close a menu for buying towers.
+- The player will be able to open and close a menu to buy weapons and perks as well as set bought items to the hotbar.
+	There will also be a keypress that will cycle the current weapon class (eg. grenade) to the next weapon in that class on the hotbar.
+- Weapons and perks will have cooldowns when used. They will cool down even when not held.
+- The player can only move and place towers on the track. However, the player and towers can shoot over non-track areas if the terrain permits.
+- Towers have a radius around themselves within which other towers cannot be placed.
+	This will prevent the player from trapping themselves on the track.
