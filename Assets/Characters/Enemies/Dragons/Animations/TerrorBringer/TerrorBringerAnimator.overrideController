@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TerrorBringerAnimator
+  m_Controller: {fileID: 9100000, guid: 8ae60e23e33db8d45bbe1b16552422a9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 27a32759d4052dc4e92960cc22f85b43, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 601b9e9a8720f834fb218a15d9f3ae63, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 6f83b9d81f8c7854baeca6ff691bb0c1, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 49d0a594e1ca9d54ca3e17fb24d28f5c, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 859c3def7b0fdca4ba4a59bb97a3cb47, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 2f381863b81afe445bb3bbd18f1e90cc, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 20228d3ccfedbb44081151a9b249a2a3, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: ac9b8cd5f91eeef44a25fce0f31885c1, type: 3}

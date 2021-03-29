@@ -1784,7 +1784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400108}
-  - component: {fileID: 11100000}
+  - component: {fileID: -2335348464210705636}
   m_Layer: 0
   m_Name: SPIDER
   m_TagString: Untagged
@@ -1808,25 +1808,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &11100000
-Animation:
+--- !u!95 &-2335348464210705636
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100108}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: 130cac6b96af6214296215324b5da188, type: 3}
-  m_Animations:
-  - {fileID: 7400002, guid: 130cac6b96af6214296215324b5da188, type: 3}
-  - {fileID: 7400004, guid: 130cac6b96af6214296215324b5da188, type: 3}
-  - {fileID: 7400006, guid: 130cac6b96af6214296215324b5da188, type: 3}
-  - {fileID: 7400008, guid: 130cac6b96af6214296215324b5da188, type: 3}
-  - {fileID: 7400010, guid: 130cac6b96af6214296215324b5da188, type: 3}
-  - {fileID: 7400012, guid: 130cac6b96af6214296215324b5da188, type: 3}
-  - {fileID: 7400014, guid: 130cac6b96af6214296215324b5da188, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_Avatar: {fileID: 9000000, guid: 130cac6b96af6214296215324b5da188, type: 3}
+  m_Controller: {fileID: 22100000, guid: 011f822afabe5f74cb8cec093056e17b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

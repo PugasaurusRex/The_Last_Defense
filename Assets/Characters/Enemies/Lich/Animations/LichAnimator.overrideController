@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LichAnimator
+  m_Controller: {fileID: 9100000, guid: 8ae60e23e33db8d45bbe1b16552422a9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 20228d3ccfedbb44081151a9b249a2a3, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 6022850e50f6d834bb396db8945e2992, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 859c3def7b0fdca4ba4a59bb97a3cb47, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: d01821c0731788843bdef98c31b20722, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 6f83b9d81f8c7854baeca6ff691bb0c1, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: b161d64d0b842484a8dfe278b2bc0b7a, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 27a32759d4052dc4e92960cc22f85b43, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: ce43f40fc2027a949a58e385c6a2cd1f, type: 3}

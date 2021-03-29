@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 8595806118181538845}
   - component: {fileID: 8595806118188463219}
   m_Layer: 0
-  m_Name: Bull 1
+  m_Name: Bull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,7 +535,7 @@ Animator:
   m_GameObject: {fileID: 8595806118181095409}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1cac1bc7c0b44384187d348774e300d4, type: 3}
-  m_Controller: {fileID: 9100000, guid: dc8172aa0978a2842ac1a513ba1ad2f7, type: 2}
+  m_Controller: {fileID: 22100000, guid: 8073e9cd2d8adab419213e810b187ff3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

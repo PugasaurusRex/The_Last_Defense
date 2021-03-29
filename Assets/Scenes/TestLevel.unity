@@ -426,13 +426,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730026449}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.78853106, y: -0.14948381, z: 0.21128625, w: 0.5578813}
   m_LocalPosition: {x: 7.16, y: 20.07, z: -12.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 109.441986, y: -30, z: 0}
 --- !u!1 &880370368
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +731,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6c8cc2afdf3d02049b71a1f5abc7ab90, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2591,7 +2591,7 @@ Animator:
   m_GameObject: {fileID: 726292362234069521}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b6c33e1d6632025468fb37a04e312606, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 890d0fbd7bcf69847980c690ae606ae4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3079,7 +3079,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
@@ -3536,8 +3536,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: Back
+      - m_Target: {fileID: 2095627114}
+        m_MethodName: SetText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3695,7 +3695,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
@@ -3827,7 +3827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
@@ -3959,7 +3959,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
@@ -4111,7 +4111,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
@@ -5165,7 +5165,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: SaveKeys
         m_Mode: 1
         m_Arguments:
@@ -5551,7 +5551,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
@@ -5703,7 +5703,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
@@ -6129,7 +6129,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
@@ -6205,7 +6205,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
@@ -7335,7 +7335,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2095627114}
         m_MethodName: ChangeKey
         m_Mode: 2
         m_Arguments:
