@@ -124,4 +124,11 @@ public class PlayerController : MonoBehaviour
             health -= incomingDamage;
         }
     }
+
+    public void Gameover()
+    {
+        Anim.SetBool("Die", true);
+        UI.SetActive(false);
+        GameOver.SetActive(true);
+    }
 }
