@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -47,6 +48,20 @@ public class TowerShop : MonoBehaviour
     public GameObject AirDefense;
     public GameObject Mortar;
 
+    // Info for Shop
+    TowerController RifleInfo;
+    TowerController SniperInfo;
+    TowerController MachinegunInfo;
+    TowerController MissileInfo;
+    TowerController AirDefenseInfo;
+    TowerController MortarInfo;
+
+    public TMP_Text CostText;
+    public TMP_Text DamageText;
+    public TMP_Text RangeText;
+    public TMP_Text AccuracyText;
+    public TMP_Text FireRateText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +74,13 @@ public class TowerShop : MonoBehaviour
         Controls = Settings.GetComponent<SettingsController>();
 
         MenuSettings = GameObject.Find("Canvas").GetComponent<Menu>();
+
+        RifleInfo = Rifle.GetComponent<TowerController>();
+        SniperInfo = Sniper.GetComponent<TowerController>();
+        MachinegunInfo = Machinegun.GetComponent<TowerController>();
+        MissileInfo = Missile.GetComponent<TowerController>();
+        AirDefenseInfo = AirDefense.GetComponent<TowerController>();
+        MortarInfo = Mortar.GetComponent<TowerController>();
     }
 
     // Update is called once per frame
@@ -222,5 +244,62 @@ public class TowerShop : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void SetShopText(int id)
+    {
+        switch (id)
+        {
+            case 1:
+                CostText.text = "" + RiflePrice;
+                DamageText.text = "" + RifleInfo.damage;
+                RangeText.text = "" + RifleInfo.range;
+                AccuracyText.text = "" + RifleInfo.accuracy;
+                FireRateText.text = "" + RifleInfo.fireRate;
+                break;
+
+            case 2:
+                CostText.text = "" + SniperPrice;
+                DamageText.text = "" + SniperInfo.damage;
+                RangeText.text = "" + SniperInfo.range;
+                AccuracyText.text = "" + SniperInfo.accuracy;
+                FireRateText.text = "" + SniperInfo.fireRate;
+                break;
+
+            case 3:
+                CostText.text = "" + MachinegunPrice;
+                DamageText.text = "" + MachinegunInfo.damage;
+                RangeText.text = "" + MachinegunInfo.range;
+                AccuracyText.text = "" + MachinegunInfo.accuracy;
+                FireRateText.text = "" + MachinegunInfo.fireRate;
+                break;
+
+            case 4:
+                CostText.text = "" + MissilePrice;
+                DamageText.text = "" + MissileInfo.damage;
+                RangeText.text = "" + MissileInfo.range;
+                AccuracyText.text = "" + MissileInfo.accuracy;
+                FireRateText.text = "" + MissileInfo.fireRate;
+                break;
+
+            case 5:
+                CostText.text = "" + AirDefensePrice;
+                DamageText.text = "" + AirDefenseInfo.damage;
+                RangeText.text = "" + AirDefenseInfo.range;
+                AccuracyText.text = "" + AirDefenseInfo.accuracy;
+                FireRateText.text = "" + AirDefenseInfo.fireRate;
+                break;
+
+            case 6:
+                CostText.text = "" + MortarPrice;
+                DamageText.text = "" + MortarInfo.damage;
+                RangeText.text = "" + MortarInfo.range;
+                AccuracyText.text = "" + MortarInfo.accuracy;
+                FireRateText.text = "" + MortarInfo.fireRate;
+                break;
+
+            default:
+                break;
+        }
     }
 }

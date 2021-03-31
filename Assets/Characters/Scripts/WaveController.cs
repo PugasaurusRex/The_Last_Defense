@@ -40,12 +40,10 @@ public class WaveController : MonoBehaviour
     public List<List<Enemy>> WaveList = new List<List<Enemy>>();
     public List<GameObject> AliveEnemies = new List<GameObject>();
 
-    public bool victory = false;
     public float NotifTime = 2f;
     public GameObject WaveText;
 
     public TMP_Text waveNumber;
-
 
     // Start is called before the first frame update
     void Start()
@@ -69,17 +67,14 @@ public class WaveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (victory)
-        {
-            inWave = false;
-            wave++;
-            GameObject.Find("Canvas").GetComponent<Menu>().Victory();
-        }
-
         // Continue wave
         if (inWave && canSpawn)
         {
             WaveCreator();
+        }
+        else if (!inWave && wave == WaveList.Count)
+        {
+            GameObject.Find("Canvas").GetComponent<Menu>().Victory();
         }
     }
 

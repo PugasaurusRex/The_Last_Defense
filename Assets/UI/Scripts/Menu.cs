@@ -12,7 +12,7 @@ public class Menu : MonoBehaviour
     SettingsController Controls;
 
     public GameObject UI;
-    public GameObject GameOver;
+    public GameObject GameOverScreen;
     public GameObject ShopMenu;
     public GameObject Inventory;
     public GameObject PauseMenu;
@@ -20,6 +20,7 @@ public class Menu : MonoBehaviour
     public GameObject ExitMenu;
     public GameObject VictoryScreen;
     public GameObject WaveInfo;
+    public GameObject ShopInfo;
 
     bool ShopToggle = true;
     bool InvToggle = true;
@@ -92,12 +93,15 @@ public class Menu : MonoBehaviour
     public void Gameover()
     {
         UI.SetActive(false);
-        GameOver.SetActive(true);
+        ShopMenu.SetActive(false);
+        GameOverScreen.SetActive(true);
     }
 
     public void Victory()
     {
-
+        UI.SetActive(false);
+        ShopMenu.SetActive(false);
+        VictoryScreen.SetActive(true);
     }
 
     public void ToggleShop()
@@ -140,25 +144,55 @@ public class Menu : MonoBehaviour
 
     public void ToggleSettings(bool visible)
     {
-        if (visible)
-        {
-            SettingsMenu.SetActive(true);
-        }
-        else
-        {
-            SettingsMenu.SetActive(false);
-        }
+        SettingsMenu.SetActive(visible);
     }
 
     public void ToggleExit(bool visible)
     {
-        if (visible)
+        ExitMenu.SetActive(visible);
+    }
+
+    public void ExitToMenu()
+    {
+        try
         {
-            ExitMenu.SetActive(true);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
-        else
+        catch
         {
-            ExitMenu.SetActive(false);
+            Application.Quit();
         }
+    }
+
+    public void Restart()
+    {
+        int temp = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(temp);
+    }
+
+    public void NextLevel()
+    {
+        try
+        {
+            int temp = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+
+            if(temp >= 3)
+            {
+                ExitToMenu();
+            }
+            else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(temp + 1);
+            }
+        }
+        catch
+        {
+            ExitToMenu();
+        }
+    }
+
+    public void ToggleShopInfo(bool visible)
+    {
+         ShopInfo.SetActive(visible);
     }
 }
