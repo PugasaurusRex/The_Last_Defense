@@ -5,12 +5,12 @@ using UnityEngine;
 public class GoalScript : MonoBehaviour
 {
     public int health = 100;
-    public GameObject Player;
+    public GameObject MenuUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
+        
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class GoalScript : MonoBehaviour
     {
         if (health <= 0)
         {
-            Player.GetComponent<PlayerController>().Gameover();
+            MenuUI.GetComponent<Menu>().Gameover();
             Destroy(this.gameObject);
         }
     }

@@ -35,13 +35,111 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Get GameObjects
+        Player = GameObject.Find("Player");
+        PlayerInfo = Player.GetComponent<PlayerController>();
+
+        TowerShopRef = GameObject.Find("TowerShopUI").GetComponent<TowerShop>();
+        Goal = GameObject.Find("Goal");
+
+        // Get Animator
+        Anim = this.GetComponent<Animator>();
+
+        // Set starting target
+        target = Goal.transform.position;
+        TargetObject = Goal;
+
+        // Start navmesh
+        myNav = this.gameObject.GetComponent<NavMeshAgent>();
+        myNav.destination = target;
+        myNav.isStopped = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!Anim.GetBool("Dead"))
+        {
+            if (AttackPlayer)
+            {
+                if (Vector3.Distance(this.transform.position, Player.transform.position) < ViewDistance)
+                {
+                    target = Player.transform.position;
+                    TargetObject = Player;
+                }
+                else
+                {
+                    target = Goal.transform.position;
+                    TargetObject = Goal;
+                }
+            }
+
+            if (AttackTowers)
+            {
+                if (!targeting)
+                {
+                    foreach (GameObject i in TowerShopRef.PlacedTowers)
+                    {
+                        if (i != null)
+                        {
+                            if (Vector3.Distance(this.transform.position, i.transform.position) < ViewDistance)
+                            {
+                                TargetObject = i;
+                                target = i.transform.position;
+                                targeting = true;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (TargetObject == null)
+                    {
+                        targeting = false;
+                        target = Goal.transform.position;
+                        TargetObject = Goal;
+                    }
+                }
+            }
+
+            this.transform.LookAt(myNav.nextPosition);
+
+            if (Vector3.Distance(this.transform.position, target) < attackDistance)
+            {
+                myNav.isStopped = true;
+                Anim.SetBool("Moving", false);
+
+                if (!attacking)
+                {
+                    attacking = true;
+                    Anim.SetBool("Attack", true);
+                    StartCoroutine(Attack());
+                }
+            }
+
+            if (health <= 0)
+            {
+                myNav.isStopped = true;
+                myNav.velocity = Vector3.zero;
+
+                this.gameObject.GetComponent<Collider>().enabled = false;
+
+                Anim.SetBool("Dead", true);
+                GameObject.Find("SpawnerControl").GetComponent<WaveController>().AliveEnemies.Remove(this.gameObject);
+                StartCoroutine(Die());
+            }
+
+            if (!attacking && myNav.isOnNavMesh)
+            {
+                Anim.SetBool("Moving", true);
+                myNav.destination = target;
+                myNav.isStopped = false;
+            }
+        }
+        else
+        {
+            myNav.velocity = Vector3.zero;
+        }
     }
 
     IEnumerator Attack()
@@ -63,7 +161,6 @@ public class EnemyController : MonoBehaviour
         }
         yield return new WaitForSeconds(attackCooldown);
         attacking = false;
-        //Anim.SetBool("Attack", false);
     }
 
     public void TakeDamage(int incomingDamage)

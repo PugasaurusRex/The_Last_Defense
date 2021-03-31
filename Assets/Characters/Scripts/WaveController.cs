@@ -43,7 +43,6 @@ public class WaveController : MonoBehaviour
     public bool victory = false;
     public float NotifTime = 2f;
     public GameObject WaveText;
-    public GameObject WinText;
 
     public TMP_Text waveNumber;
 
@@ -74,8 +73,7 @@ public class WaveController : MonoBehaviour
         {
             inWave = false;
             wave++;
-            GameObject.Find("Player").GetComponent<PlayerController>().UI.SetActive(false);
-            WinText.SetActive(true);
+            GameObject.Find("Canvas").GetComponent<Menu>().Victory();
         }
 
         // Continue wave

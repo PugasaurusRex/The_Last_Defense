@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,12 +38,10 @@ public class PlayerController : MonoBehaviour
     public TMP_Text magText;
     public TMP_Text magSizeText;
     public TMP_Text scrapText;
-    public TMP_Text healthText;
+    public Image healthDisplay;
+    public Image armorDisplay;
 
-    public GameObject UI;
-    public GameObject GameOver;
-
-    bool MouseUsed = false;
+    public bool MouseUsed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -50,18 +49,25 @@ public class PlayerController : MonoBehaviour
         Rig = this.GetComponent<Rigidbody>();
         Anim = this.GetComponent<Animator>();
         Controls = ControlMenu.GetComponent<SettingsController>();
+
+        mag = magSize;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //scrapText.text = "" + scrap;
-        //healthText.text = "" + health;
+        // Set UI Elements
+        scrapText.text = "" + scrap;
+        magSizeText.text = "" + magSize;
+        magText.text = "" + mag;
+        healthDisplay.fillAmount = (float)health / 100;
+        armorDisplay.fillAmount = (float)armor / 100;
 
         // Get User Input
         float h = 0;
         float v = 0;
 
+        // Input for moving
         if (Input.GetKey(Controls.keys["Up"]))
         {
             v += 1;
@@ -95,6 +101,50 @@ public class PlayerController : MonoBehaviour
         {
             Rig.velocity += (desiredV - Rig.velocity).normalized * accel;
         }
+
+        // Shooting
+        if (Input.GetKey(Controls.keys["Shoot"]) || (Input.GetButton("Fire1") && !MouseUsed))
+        {
+            Shooting = true;
+        }
+        else
+        {
+            Anim.SetBool("Shoot", false);
+            Shooting = false;
+        }
+
+        // Reload
+        if ((Input.GetKey(Controls.keys["Reload"]) && !Reloading) && mag != magSize)
+        {
+            CanShoot = false;
+            Reloading = true;
+            StartCoroutine(Reload());
+        }
+
+        // Shoot if possible
+        if (Shooting && CanShoot)
+        {
+            if (mag > 0)
+            {
+                CanShoot = false;
+                Anim.SetBool("Shoot", true);
+                StartCoroutine(Flash());
+                StartCoroutine(Shoot());
+            }
+            else if (mag <= 0 && !Reloading)
+            {
+                CanShoot = false;
+                Reloading = true;
+                StartCoroutine(Reload());
+            }
+        }
+
+        // If out of health initiate gameover sequence
+        if (health <= 0)
+        {
+            Anim.SetBool("Die", true);
+            GameObject.Find("Canvas").GetComponent<Menu>().Gameover();
+        }
     }
 
     public void MouseOnButton()
@@ -125,10 +175,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Gameover()
+    IEnumerator Shoot()
     {
-        Anim.SetBool("Die", true);
-        UI.SetActive(false);
-        GameOver.SetActive(true);
+        GameObject temp = Instantiate(bullet, new Vector3(bulletSpawn.transform.position.x, 1, bulletSpawn.transform.position.z), this.transform.rotation);
+        mag--;
+        magText.text = "" + mag;
+        yield return new WaitForSeconds(RateOfFire);
+        Anim.SetBool("Shoot", false);
+        CanShoot = true;
+    }
+
+    IEnumerator Flash()
+    {
+        MuzzleFlash.SetActive(true);
+        yield return new WaitForSeconds(.05f);
+        MuzzleFlash.SetActive(false);
+    }
+
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(ReloadTime);
+        mag = magSize;
+        magText.text = "" + mag;
+        CanShoot = true;
+        Reloading = false;
     }
 }
