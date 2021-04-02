@@ -8,11 +8,10 @@ public class PlayerController : MonoBehaviour
 {
     // Components
     Rigidbody Rig;
-    Animator Anim;
+    public Animator Anim;
     public GameObject ControlMenu;
     SettingsController Controls;
-    public GameObject MuzzleFlash;
-    public GameObject bulletSpawn;
+    public GameObject GunHand;
 
     // Gamestate Variables
     public int health = 100;
@@ -23,16 +22,9 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 9.0f;
     public float accel = .8f;
 
-    // Gun Vars
-    bool CanShoot = true;
-    bool Shooting = false;
-    bool Reloading = false;
-    public float RateOfFire = 4f;
-    public float ReloadTime = 4f;
-    public GameObject bullet;
-
-    public int magSize = 13;
-    int mag;
+    // Active Item
+    public GameObject ActiveWeapon;
+    public Item ActiveWeaponInfo;
 
     // UI
     public TMP_Text magText;
@@ -50,7 +42,9 @@ public class PlayerController : MonoBehaviour
         Anim = this.GetComponent<Animator>();
         Controls = ControlMenu.GetComponent<SettingsController>();
 
-        mag = magSize;
+        ActiveWeaponInfo = ActiveWeapon.GetComponent<Item>();
+
+        ActiveWeaponInfo.mag = ActiveWeaponInfo.magSize;
     }
 
     // Update is called once per frame
@@ -58,8 +52,8 @@ public class PlayerController : MonoBehaviour
     {
         // Set UI Elements
         scrapText.text = "" + scrap;
-        magSizeText.text = "" + magSize;
-        magText.text = "" + mag;
+        magSizeText.text = "" + ActiveWeaponInfo.magSize;
+        magText.text = "" + ActiveWeaponInfo.mag;
         healthDisplay.fillAmount = (float)health / 100;
         armorDisplay.fillAmount = (float)armor / 100;
 
@@ -102,41 +96,23 @@ public class PlayerController : MonoBehaviour
             Rig.velocity += (desiredV - Rig.velocity).normalized * accel;
         }
 
-        // Shooting
+        // Use Item
         if (Input.GetKey(Controls.keys["Shoot"]) || (Input.GetButton("Fire1") && !MouseUsed))
         {
-            Shooting = true;
+            ActiveWeaponInfo.usingItem = true;
         }
         else
         {
             Anim.SetBool("Shoot", false);
-            Shooting = false;
+            ActiveWeaponInfo.usingItem = false;
         }
 
         // Reload
-        if ((Input.GetKey(Controls.keys["Reload"]) && !Reloading) && mag != magSize)
+        if ((Input.GetKey(Controls.keys["Reload"]) && !ActiveWeaponInfo.reloading) && ActiveWeaponInfo.mag != ActiveWeaponInfo.magSize)
         {
-            CanShoot = false;
-            Reloading = true;
-            StartCoroutine(Reload());
-        }
-
-        // Shoot if possible
-        if (Shooting && CanShoot)
-        {
-            if (mag > 0)
-            {
-                CanShoot = false;
-                Anim.SetBool("Shoot", true);
-                StartCoroutine(Flash());
-                StartCoroutine(Shoot());
-            }
-            else if (mag <= 0 && !Reloading)
-            {
-                CanShoot = false;
-                Reloading = true;
-                StartCoroutine(Reload());
-            }
+            ActiveWeaponInfo.canUse = false;
+            ActiveWeaponInfo.reloading = true;
+            ActiveWeaponInfo.StartCoroutine(ActiveWeaponInfo.Reload());
         }
 
         // If out of health initiate gameover sequence
@@ -173,31 +149,5 @@ public class PlayerController : MonoBehaviour
         {
             health -= incomingDamage;
         }
-    }
-
-    IEnumerator Shoot()
-    {
-        GameObject temp = Instantiate(bullet, new Vector3(bulletSpawn.transform.position.x, 1, bulletSpawn.transform.position.z), this.transform.rotation);
-        mag--;
-        magText.text = "" + mag;
-        yield return new WaitForSeconds(RateOfFire);
-        Anim.SetBool("Shoot", false);
-        CanShoot = true;
-    }
-
-    IEnumerator Flash()
-    {
-        MuzzleFlash.SetActive(true);
-        yield return new WaitForSeconds(.05f);
-        MuzzleFlash.SetActive(false);
-    }
-
-    IEnumerator Reload()
-    {
-        yield return new WaitForSeconds(ReloadTime);
-        mag = magSize;
-        magText.text = "" + mag;
-        CanShoot = true;
-        Reloading = false;
     }
 }

@@ -1018,8 +1018,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94cf30c00b3341347aa4cd3b9cc06be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
-  purchasedItems: []
+  items:
+  - {fileID: 1694449805434718, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}
+  - {fileID: 5028268983051372630, guid: 56518c5b3a1815d4a8f27f6b3d1f9d43, type: 3}
+  purchasedItems:
+  - {fileID: 1694449805434718, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}
+  Player: {fileID: 0}
 --- !u!1 &88593501
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4118,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 587407128}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 85193779}
+        m_MethodName: SetActiveItem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &587407128
@@ -6870,7 +6885,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1045732749}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 85193779}
+        m_MethodName: SetActiveItem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1045732749
@@ -14305,18 +14331,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97443d22c2f22e45aff3e99d3c3683f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
   ControlMenu: {fileID: 2095627113}
-  MuzzleFlash: {fileID: 0}
-  bulletSpawn: {fileID: 0}
+  GunHand: {fileID: 726292362234069943}
   health: 100
   armor: 0
   scrap: 250
   maxSpeed: 9
   accel: 0.8
-  RateOfFire: 4
-  ReloadTime: 3
-  bullet: {fileID: 0}
-  magSize: 13
+  ActiveWeapon: {fileID: 1694449805434718, guid: 6f1a7354265853f44b0ed5e2e43676ad,
+    type: 3}
+  ActiveWeaponInfo: {fileID: 0}
   magText: {fileID: 1692007655}
   magSizeText: {fileID: 1357449738}
   scrapText: {fileID: 520405212}

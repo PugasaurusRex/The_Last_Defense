@@ -7,10 +7,16 @@ public class WeaponShop : MonoBehaviour
     public GameObject[] items;
     public List<GameObject> purchasedItems = new List<GameObject>();
 
+    public GameObject Player;
+    PlayerController PlayerInfo;
+
+    int lastId = -1;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player = GameObject.Find("Player");
+        PlayerInfo = Player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -23,11 +29,19 @@ public class WeaponShop : MonoBehaviour
     {
         if(!purchasedItems.Contains(items[id]))
         {
-            // Buy Item
+            purchasedItems.Add(items[id]);
         }
-        else
+        else if(id != lastId)
         {
-            // Equip Item
+            if (PlayerInfo.ActiveWeapon != null)
+            {
+                Destroy(PlayerInfo.ActiveWeapon);
+            }
+
+            GameObject temp = Instantiate(items[id]);
+            PlayerInfo.ActiveWeapon = temp;
+            PlayerInfo.ActiveWeaponInfo = temp.GetComponent<Item>();
+            lastId = id;
         }
     }
 }
