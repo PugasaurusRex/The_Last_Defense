@@ -17,6 +17,8 @@ public class WeaponShop : MonoBehaviour
     {
         Player = GameObject.Find("Player");
         PlayerInfo = Player.GetComponent<PlayerController>();
+
+        SetActiveItem(0);
     }
 
     // Update is called once per frame

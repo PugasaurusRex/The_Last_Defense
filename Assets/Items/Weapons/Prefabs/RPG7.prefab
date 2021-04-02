@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 4071463830363502}
   - component: {fileID: 33092926340133414}
   - component: {fileID: 23100547221564144}
+  - component: {fileID: 7317674118480811424}
   m_Layer: 0
   m_Name: RPG7
   m_TagString: Player
@@ -156,6 +157,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7317674118480811424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411512464560164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2a3c32c8dde2442bf55cfb4b240a8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 0
+  reloadTime: 0
+  rateOfFire: 0
+  rifle: 1
+  usingItem: 0
+  canUse: 1
+  reloading: 0
+  magSize: 13
+  mag: 0
+  Player: {fileID: 0}
+  PlayerInfo: {fileID: 0}
+  HandPosition: {x: 0.0047, y: -0.0969, z: 0.0354}
+  HandRotation: {x: -90, y: -90, z: -90}
+  MuzzleFlash: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  bullet: {fileID: 0}
 --- !u!1 &1922950281920760
 GameObject:
   m_ObjectHideFlags: 0

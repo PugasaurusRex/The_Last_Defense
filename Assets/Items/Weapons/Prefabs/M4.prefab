@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23280471604157296}
   - component: {fileID: -2534722652159427809}
   m_Layer: 0
-  m_Name: M4_8
+  m_Name: M4
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   cost: 0
   reloadTime: 0
   rateOfFire: 0
-  rifle: 0
+  rifle: 1
   usingItem: 0
   canUse: 1
   reloading: 0
