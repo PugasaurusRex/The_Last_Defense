@@ -58,87 +58,90 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Anim.GetBool("Dead"))
+        if(Time.timeScale != 0)
         {
-            if (AttackPlayer)
+            if (!Anim.GetBool("Dead"))
             {
-                if (Vector3.Distance(this.transform.position, Player.transform.position) < ViewDistance)
+                if (AttackPlayer)
                 {
-                    target = Player.transform.position;
-                    TargetObject = Player;
-                }
-                else
-                {
-                    target = Goal.transform.position;
-                    TargetObject = Goal;
-                }
-            }
-
-            if (AttackTowers)
-            {
-                if (!targeting)
-                {
-                    foreach (GameObject i in TowerShopRef.PlacedTowers)
+                    if (Vector3.Distance(this.transform.position, Player.transform.position) < ViewDistance)
                     {
-                        if (i != null)
-                        {
-                            if (Vector3.Distance(this.transform.position, i.transform.position) < ViewDistance)
-                            {
-                                TargetObject = i;
-                                target = i.transform.position;
-                                targeting = true;
-                            }
-                        }
+                        target = Player.transform.position;
+                        TargetObject = Player;
                     }
-                }
-                else
-                {
-                    if (TargetObject == null)
+                    else
                     {
-                        targeting = false;
                         target = Goal.transform.position;
                         TargetObject = Goal;
                     }
                 }
-            }
 
-            this.transform.LookAt(myNav.nextPosition);
-
-            if (Vector3.Distance(this.transform.position, target) < attackDistance)
-            {
-                myNav.isStopped = true;
-                Anim.SetBool("Moving", false);
-
-                if (!attacking)
+                if (AttackTowers)
                 {
-                    attacking = true;
-                    Anim.SetBool("Attack", true);
-                    StartCoroutine(Attack());
+                    if (!targeting)
+                    {
+                        foreach (GameObject i in TowerShopRef.PlacedTowers)
+                        {
+                            if (i != null)
+                            {
+                                if (Vector3.Distance(this.transform.position, i.transform.position) < ViewDistance)
+                                {
+                                    TargetObject = i;
+                                    target = i.transform.position;
+                                    targeting = true;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (TargetObject == null)
+                        {
+                            targeting = false;
+                            target = Goal.transform.position;
+                            TargetObject = Goal;
+                        }
+                    }
+                }
+
+                this.transform.LookAt(myNav.nextPosition);
+
+                if (Vector3.Distance(this.transform.position, target) < attackDistance)
+                {
+                    myNav.isStopped = true;
+                    Anim.SetBool("Moving", false);
+
+                    if (!attacking)
+                    {
+                        attacking = true;
+                        Anim.SetBool("Attack", true);
+                        StartCoroutine(Attack());
+                    }
+                }
+
+                if (health <= 0)
+                {
+                    myNav.isStopped = true;
+                    myNav.velocity = Vector3.zero;
+
+                    this.gameObject.GetComponent<Collider>().enabled = false;
+
+                    Anim.SetBool("Dead", true);
+                    GameObject.Find("SpawnerControl").GetComponent<WaveController>().AliveEnemies.Remove(this.gameObject);
+                    StartCoroutine(Die());
+                }
+
+                if (!attacking && myNav.isOnNavMesh)
+                {
+                    Anim.SetBool("Moving", true);
+                    myNav.destination = target;
+                    myNav.isStopped = false;
                 }
             }
-
-            if (health <= 0)
+            else
             {
-                myNav.isStopped = true;
                 myNav.velocity = Vector3.zero;
-
-                this.gameObject.GetComponent<Collider>().enabled = false;
-
-                Anim.SetBool("Dead", true);
-                GameObject.Find("SpawnerControl").GetComponent<WaveController>().AliveEnemies.Remove(this.gameObject);
-                StartCoroutine(Die());
             }
-
-            if (!attacking && myNav.isOnNavMesh)
-            {
-                Anim.SetBool("Moving", true);
-                myNav.destination = target;
-                myNav.isStopped = false;
-            }
-        }
-        else
-        {
-            myNav.velocity = Vector3.zero;
         }
     }
 

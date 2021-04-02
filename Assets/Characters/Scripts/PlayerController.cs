@@ -50,76 +50,79 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Set UI Elements
-        scrapText.text = "" + scrap;
-        magSizeText.text = "" + ActiveWeaponInfo.magSize;
-        magText.text = "" + ActiveWeaponInfo.mag;
-        healthDisplay.fillAmount = (float)health / 100;
-        armorDisplay.fillAmount = (float)armor / 100;
+        if(Time.timeScale != 0)
+        {
+            // Set UI Elements
+            scrapText.text = "" + scrap;
+            magSizeText.text = "" + ActiveWeaponInfo.magSize;
+            magText.text = "" + ActiveWeaponInfo.mag;
+            healthDisplay.fillAmount = (float)health / 100;
+            armorDisplay.fillAmount = (float)armor / 100;
 
-        // Get User Input
-        float h = 0;
-        float v = 0;
+            // Get User Input
+            float h = 0;
+            float v = 0;
 
-        // Input for moving
-        if (Input.GetKey(Controls.keys["Up"]))
-        {
-            v += 1;
-        }
-        if (Input.GetKey(Controls.keys["Down"]))
-        {
-            v += -1;
-        }
-        if (Input.GetKey(Controls.keys["Right"]))
-        {
-            h += 1;
-        }
-        if (Input.GetKey(Controls.keys["Left"]))
-        {
-            h += -1;
-        }
+            // Input for moving
+            if (Input.GetKey(Controls.keys["Up"]))
+            {
+                v += 1;
+            }
+            if (Input.GetKey(Controls.keys["Down"]))
+            {
+                v += -1;
+            }
+            if (Input.GetKey(Controls.keys["Right"]))
+            {
+                h += 1;
+            }
+            if (Input.GetKey(Controls.keys["Left"]))
+            {
+                h += -1;
+            }
 
-        // Player Character looks at mouse position
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
-        {
-            this.transform.LookAt(new Vector3(hit.point.x, this.transform.position.y, hit.point.z));
-        }
+            // Player Character looks at mouse position
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
+            {
+                this.transform.LookAt(new Vector3(hit.point.x, this.transform.position.y, hit.point.z));
+            }
 
-        // Accelerate to desired speed
-        Vector3 desiredV = new Vector3(h, 0, v).normalized * maxSpeed;
-        if ((desiredV - Rig.velocity).magnitude < .1f)
-        {
-            Rig.velocity = desiredV;
-        }
-        else
-        {
-            Rig.velocity += (desiredV - Rig.velocity).normalized * accel;
-        }
+            // Accelerate to desired speed
+            Vector3 desiredV = new Vector3(h, 0, v).normalized * maxSpeed;
+            if ((desiredV - Rig.velocity).magnitude < .1f)
+            {
+                Rig.velocity = desiredV;
+            }
+            else
+            {
+                Rig.velocity += (desiredV - Rig.velocity).normalized * accel;
+            }
 
-        // Use Item
-        if (Input.GetKey(Controls.keys["Shoot"]) || (Input.GetButton("Fire1") && !MouseUsed))
-        {
-            ActiveWeaponInfo.usingItem = true;
-        }
-        else
-        {
-            Anim.SetBool("Shoot", false);
-            ActiveWeaponInfo.usingItem = false;
-        }
+            // Use Item
+            if (Input.GetKey(Controls.keys["Shoot"]) || (Input.GetButton("Fire1") && !MouseUsed))
+            {
+                ActiveWeaponInfo.usingItem = true;
+            }
+            else
+            {
+                Anim.SetBool("Shoot", false);
+                ActiveWeaponInfo.usingItem = false;
+            }
 
-        // Reload
-        if ((Input.GetKey(Controls.keys["Reload"]) && !ActiveWeaponInfo.reloading) && ActiveWeaponInfo.mag != ActiveWeaponInfo.magSize)
-        {
-            ActiveWeaponInfo.canUse = false;
-            ActiveWeaponInfo.reloading = true;
-            ActiveWeaponInfo.StartCoroutine(ActiveWeaponInfo.Reload());
-        }
+            // Reload
+            if ((Input.GetKey(Controls.keys["Reload"]) && !ActiveWeaponInfo.reloading) && ActiveWeaponInfo.mag != ActiveWeaponInfo.magSize)
+            {
+                ActiveWeaponInfo.canUse = false;
+                ActiveWeaponInfo.reloading = true;
+                ActiveWeaponInfo.StartCoroutine(ActiveWeaponInfo.Reload());
+            }
 
-        // If out of health initiate gameover sequence
-        if (health <= 0)
-        {
-            Anim.SetBool("Die", true);
-            GameObject.Find("Canvas").GetComponent<Menu>().Gameover();
+            // If out of health initiate gameover sequence
+            if (health <= 0)
+            {
+                Anim.SetBool("Die", true);
+                GameObject.Find("Canvas").GetComponent<Menu>().Gameover();
+            }
         }
     }
 

@@ -86,49 +86,52 @@ public class TowerShop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") || Input.GetKeyDown(Controls.keys["Cancel"]))
+        if (Time.timeScale != 0)
         {
+            if (Input.GetButtonDown("Cancel") || Input.GetKeyDown(Controls.keys["Cancel"]))
+            {
+                if (TempTower != null)
+                {
+                    Destroy(TempTower);
+                    TowerId = 0;
+                }
+                PlayerInfo.MouseUsed = false;
+            }
+
             if (TempTower != null)
-            {
-                Destroy(TempTower);
-                TowerId = 0;
-            }
-            PlayerInfo.MouseUsed = false;
-        }
-
-        if (TempTower != null)
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
-            {
-                TempTower.transform.position = hit.point;
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0) && TempTower != null)
-        {
-            if (PlayerInfo.scrap >= TempTowerCost && CheckTowerDistance())
             {
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                 {
-                    int walkableMask = 1 << NavMesh.GetAreaFromName("Walk");
-                    int priorityMask = 1 << NavMesh.GetAreaFromName("Priority");
-                    if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit, 1f, walkableMask) && hit.collider.gameObject.tag != "Enemy")
+                    TempTower.transform.position = hit.point;
+                }
+            }
+
+            if (Input.GetMouseButtonDown(0) && TempTower != null)
+            {
+                if (PlayerInfo.scrap >= TempTowerCost && CheckTowerDistance())
+                {
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                     {
-                        PlaceTower(hit.point, hit.transform.rotation);
-                        PlayerInfo.scrap -= TempTowerCost;
-                    }
-                    else if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit2, 1f, priorityMask) && hit.collider.gameObject.tag != "Enemy")
-                    {
-                        PlaceTower(hit.point, hit.transform.rotation);
-                        PlayerInfo.scrap -= TempTowerCost;
+                        int walkableMask = 1 << NavMesh.GetAreaFromName("Walk");
+                        int priorityMask = 1 << NavMesh.GetAreaFromName("Priority");
+                        if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit, 1f, walkableMask) && hit.collider.gameObject.tag != "Enemy")
+                        {
+                            PlaceTower(hit.point, hit.transform.rotation);
+                            PlayerInfo.scrap -= TempTowerCost;
+                        }
+                        else if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit2, 1f, priorityMask) && hit.collider.gameObject.tag != "Enemy")
+                        {
+                            PlaceTower(hit.point, hit.transform.rotation);
+                            PlayerInfo.scrap -= TempTowerCost;
+                        }
                     }
                 }
             }
-        }
 
-        if (TempTower != null)
-        {
-            PlayerInfo.MouseUsed = true;
+            if (TempTower != null)
+            {
+                PlayerInfo.MouseUsed = true;
+            }
         }
     }
 

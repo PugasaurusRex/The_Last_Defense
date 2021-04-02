@@ -38,68 +38,71 @@ public class TowerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        if(Time.timeScale != 0)
         {
-            GameObject.Find("TowerShopUI").GetComponent<TowerShop>().PlacedTowers.Remove(this.gameObject);
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            if (InRange.Count > 0)
+            if (health <= 0)
             {
-                if (i >= InRange.Count)
+                GameObject.Find("TowerShopUI").GetComponent<TowerShop>().PlacedTowers.Remove(this.gameObject);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                if (InRange.Count > 0)
                 {
-                    i = 0;
-                }
+                    if (i >= InRange.Count)
+                    {
+                        i = 0;
+                    }
 
-                if (InRange[i] == null)
-                {
-                    InRange.RemoveAt(i);
-                    i = 0;
-                }
-
-                if (i < InRange.Count && InRange[i] != null)
-                {
-                    if (Vector3.Distance(this.transform.position, InRange[i].transform.position) > range)
+                    if (InRange[i] == null)
                     {
                         InRange.RemoveAt(i);
+                        i = 0;
                     }
-                    else if (Vector3.Distance(this.transform.position, InRange[i].transform.position) < .5f)
+
+                    if (i < InRange.Count && InRange[i] != null)
                     {
-                        target = InRange[i].gameObject;
-                    }
-                    else if (Physics.Raycast(this.transform.position, InRange[i].gameObject.transform.position - this.transform.position, out RaycastHit hit) && hit.collider.gameObject == InRange[i].gameObject)
-                    {
-                        target = InRange[i].gameObject;
-                    }
-                    else
-                    {
-                        target = null;
-                        i++;
+                        if (Vector3.Distance(this.transform.position, InRange[i].transform.position) > range)
+                        {
+                            InRange.RemoveAt(i);
+                        }
+                        else if (Vector3.Distance(this.transform.position, InRange[i].transform.position) < .5f)
+                        {
+                            target = InRange[i].gameObject;
+                        }
+                        else if (Physics.Raycast(this.transform.position, InRange[i].gameObject.transform.position - this.transform.position, out RaycastHit hit) && hit.collider.gameObject == InRange[i].gameObject)
+                        {
+                            target = InRange[i].gameObject;
+                        }
+                        else
+                        {
+                            target = null;
+                            i++;
+                        }
                     }
                 }
-            }
-            else if (WaveInfo.inWave)
-            {
-                foreach (GameObject i in WaveInfo.AliveEnemies)
+                else if (WaveInfo.inWave)
                 {
-                    if (Vector3.Distance(this.transform.position, i.transform.position) <= range)
+                    foreach (GameObject i in WaveInfo.AliveEnemies)
                     {
-                        InRange.Add(i);
+                        if (Vector3.Distance(this.transform.position, i.transform.position) <= range)
+                        {
+                            InRange.Add(i);
+                        }
                     }
                 }
-            }
 
-            if (target != null)
-            {
-                rotator.transform.LookAt(target.transform.position);
-
-                if (CanShoot)
+                if (target != null)
                 {
-                    CanShoot = false;
-                    MuzzleFlash.SetActive(true);
-                    StartCoroutine(Flash());
-                    StartCoroutine(Shoot());
+                    rotator.transform.LookAt(target.transform.position);
+
+                    if (CanShoot)
+                    {
+                        CanShoot = false;
+                        MuzzleFlash.SetActive(true);
+                        StartCoroutine(Flash());
+                        StartCoroutine(Shoot());
+                    }
                 }
             }
         }

@@ -37,10 +37,10 @@ public class Item : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        // Use if possible
-        if (usingItem && canUse)
+        if(Time.timeScale != 0)
         {
-            if (mag > 0)
+            // Use if possible
+            if (usingItem && canUse && mag > 0)
             {
                 canUse = false;
                 PlayerInfo.Anim.SetBool("Shoot", true);

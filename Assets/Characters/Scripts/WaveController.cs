@@ -67,14 +67,17 @@ public class WaveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Continue wave
-        if (inWave && canSpawn)
+        if(Time.timeScale != 0)
         {
-            WaveCreator();
-        }
-        else if (!inWave && wave == WaveList.Count)
-        {
-            GameObject.Find("Canvas").GetComponent<Menu>().Victory();
+            // Continue wave
+            if (inWave && canSpawn)
+            {
+                WaveCreator();
+            }
+            else if (!inWave && wave == WaveList.Count)
+            {
+                GameObject.Find("Canvas").GetComponent<Menu>().Victory();
+            }
         }
     }
 
