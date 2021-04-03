@@ -5,10 +5,10 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     // Store All Enemies In Range of The Tower.
-    public List<GameObject> InRange = new List<GameObject>();
+    List<GameObject> InRange = new List<GameObject>();
 
-    public GameObject Wave;
-    public WaveController WaveInfo;
+    GameObject Wave;
+    WaveController WaveInfo;
 
     // GameState Variables
     public int health = 100;

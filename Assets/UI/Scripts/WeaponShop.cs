@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WeaponShop : MonoBehaviour
@@ -10,7 +11,12 @@ public class WeaponShop : MonoBehaviour
     public GameObject Player;
     PlayerController PlayerInfo;
 
+    public GameObject ConfirmMenu;
+    public TMP_Text CostText;
+    public TMP_Text ItemName;
+
     int lastId = -1;
+    int tempId;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +37,10 @@ public class WeaponShop : MonoBehaviour
     {
         if(!purchasedItems.Contains(items[id]))
         {
-            purchasedItems.Add(items[id]);
+            ToggleConfirmation(true);
+            ItemName.text = items[id].name;
+            CostText.text = "" + items[id].GetComponent<Item>().cost;
+            tempId = id;
         }
         else if(id != lastId)
         {
@@ -45,5 +54,17 @@ public class WeaponShop : MonoBehaviour
             PlayerInfo.ActiveWeaponInfo = temp.GetComponent<Item>();
             lastId = id;
         }
+    }
+
+    public void PurchaseItem()
+    {
+        purchasedItems.Add(items[tempId]);
+        SetActiveItem(tempId);
+        tempId = 0;
+    }
+
+    public void ToggleConfirmation(bool visible)
+    {
+        ConfirmMenu.SetActive(visible);
     }
 }

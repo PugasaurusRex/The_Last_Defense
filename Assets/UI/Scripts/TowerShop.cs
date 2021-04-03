@@ -13,6 +13,8 @@ public class TowerShop : MonoBehaviour
     SettingsController Controls;
     Menu MenuSettings;
 
+    public GameObject ErrorMenu;
+
     public float PlaceDistance = 5f;
     public float PlayerDistance = 15f;
 
@@ -108,23 +110,36 @@ public class TowerShop : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && TempTower != null)
             {
-                if (PlayerInfo.scrap >= TempTowerCost && CheckTowerDistance())
+                if (PlayerInfo.scrap >= TempTowerCost)
                 {
-                    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
+                    if(CheckTowerDistance())
                     {
-                        int walkableMask = 1 << NavMesh.GetAreaFromName("Walk");
-                        int priorityMask = 1 << NavMesh.GetAreaFromName("Priority");
-                        if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit, 1f, walkableMask) && hit.collider.gameObject.tag != "Enemy")
+                        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                         {
-                            PlaceTower(hit.point, hit.transform.rotation);
-                            PlayerInfo.scrap -= TempTowerCost;
-                        }
-                        else if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit2, 1f, priorityMask) && hit.collider.gameObject.tag != "Enemy")
-                        {
-                            PlaceTower(hit.point, hit.transform.rotation);
-                            PlayerInfo.scrap -= TempTowerCost;
+                            int walkableMask = 1 << NavMesh.GetAreaFromName("Walk");
+                            int priorityMask = 1 << NavMesh.GetAreaFromName("Priority");
+                            if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit, 1f, walkableMask) && hit.collider.gameObject.tag != "Enemy")
+                            {
+                                PlaceTower(hit.point, hit.transform.rotation);
+                                PlayerInfo.scrap -= TempTowerCost;
+                            }
+                            else if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit2, 1f, priorityMask) && hit.collider.gameObject.tag != "Enemy")
+                            {
+                                PlaceTower(hit.point, hit.transform.rotation);
+                                PlayerInfo.scrap -= TempTowerCost;
+                            }
+                            else
+                            {
+                                ErrorMenu.GetComponentInChildren<TMP_Text>().text = "Invalid Location";
+                                StartCoroutine(ErrorMessage());
+                            }
                         }
                     }
+                }
+                else
+                {
+                    ErrorMenu.GetComponentInChildren<TMP_Text>().text = "Not enough scrap.";
+                    StartCoroutine(ErrorMessage());
                 }
             }
 
@@ -236,6 +251,8 @@ public class TowerShop : MonoBehaviour
     {
         if (wave.inWave && Vector3.Distance(Player.transform.position, TempTower.transform.position) > PlayerDistance)
         {
+            ErrorMenu.GetComponentInChildren<TMP_Text>().text = "To far from player.";
+            StartCoroutine(ErrorMessage());
             return false;
         }
 
@@ -243,6 +260,8 @@ public class TowerShop : MonoBehaviour
         {
             if (Vector3.Distance(TempTower.transform.position, i.transform.position) < PlaceDistance)
             {
+                ErrorMenu.GetComponentInChildren<TMP_Text>().text = "To close to another tower.";
+                StartCoroutine(ErrorMessage());
                 return false;
             }
         }
@@ -304,5 +323,12 @@ public class TowerShop : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    IEnumerator ErrorMessage()
+    {
+        ErrorMenu.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        ErrorMenu.SetActive(false);
     }
 }
