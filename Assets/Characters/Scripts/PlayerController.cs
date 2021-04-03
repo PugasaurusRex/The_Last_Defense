@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // Player Variables
     public float maxSpeed = 9.0f;
     public float accel = .8f;
+    public float stimSpeed = 0;
 
     // Active Item
     public GameObject ActiveWeapon;
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
             }
 
             // Accelerate to desired speed
-            Vector3 desiredV = new Vector3(h, 0, v).normalized * maxSpeed;
+            Vector3 desiredV = new Vector3(h, 0, v).normalized * (maxSpeed + stimSpeed);
             if ((desiredV - Rig.velocity).magnitude < .1f)
             {
                 Rig.velocity = desiredV;

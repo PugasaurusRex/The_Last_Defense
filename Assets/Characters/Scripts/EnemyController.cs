@@ -127,7 +127,7 @@ public class EnemyController : MonoBehaviour
                     this.gameObject.GetComponent<Collider>().enabled = false;
 
                     Anim.SetBool("Dead", true);
-                    GameObject.Find("SpawnerControl").GetComponent<WaveController>().AliveEnemies.Remove(this.gameObject);
+                    GameObject.Find("WaveController").GetComponent<WaveController>().AliveEnemies.Remove(this.gameObject);
                     StartCoroutine(Die());
                 }
 
@@ -189,5 +189,13 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(Anim.runtimeAnimatorController.animationClips[3].length);
         Destroy(this.gameObject);
         Player.GetComponent<PlayerController>().scrap += droppedScrap;
+    }
+
+    public IEnumerator Stun(float stunTime)
+    {
+        float temp = myNav.speed;
+        myNav.speed = 1;
+        yield return new WaitForSeconds(stunTime);
+        myNav.speed = temp;
     }
 }

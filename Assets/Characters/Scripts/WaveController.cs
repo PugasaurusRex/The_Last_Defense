@@ -20,6 +20,7 @@ public struct Enemy
 public class WaveController : MonoBehaviour
 {
     // Enemies
+    // Weak, Weak Armored, Weak Flying, Medium Armor, Fast, Tank, Flying Tank, Boss
     public List<GameObject> L1Enemies = new List<GameObject>();
     public List<GameObject> L2Enemies = new List<GameObject>();
     public List<GameObject> L3Enemies = new List<GameObject>();
@@ -62,6 +63,7 @@ public class WaveController : MonoBehaviour
         }
 
         // Populate Waves
+        WaveList[0].Add(new Enemy(0, 10, .5f));
     }
 
     // Update is called once per frame

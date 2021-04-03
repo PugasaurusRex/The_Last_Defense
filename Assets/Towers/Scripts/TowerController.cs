@@ -12,6 +12,7 @@ public class TowerController : MonoBehaviour
 
     // GameState Variables
     public int health = 100;
+    public int maxHealth;
 
     // Tower Variables
     public int damage = 10;
@@ -33,6 +34,7 @@ public class TowerController : MonoBehaviour
     {
         Wave = GameObject.Find("WaveController");
         WaveInfo = Wave.GetComponent<WaveController>();
+        maxHealth = health;
     }
 
     // Update is called once per frame

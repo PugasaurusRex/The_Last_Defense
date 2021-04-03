@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 4408339615606960}
   - component: {fileID: 33944325949276540}
   - component: {fileID: 23559475949960412}
-  - component: {fileID: -7493515759814624405}
+  - component: {fileID: -6242603963747217745}
+  - component: {fileID: 2822992757680871448}
+  - component: {fileID: -3103420720029201742}
   m_Layer: 0
-  m_Name: Flash
+  m_Name: FlashP
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-7493515759814624405
+--- !u!114 &-6242603963747217745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,25 +90,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 1516097666562846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 953f7f930df30f146904e5e0de02dbf0, type: 3}
+  m_Script: {fileID: 11500000, guid: a75db8c61d046e148abbc99ce80b29cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
-  reloadTime: 1
-  rateOfFire: 1
-  rifle: 0
-  usingItem: 0
-  canUse: 1
-  reloading: 0
-  magSize: 1
-  mag: 0
-  Player: {fileID: 0}
-  PlayerInfo: {fileID: 0}
-  HandPosition: {x: 0.0047, y: -0.0969, z: 0.0354}
-  HandRotation: {x: -90, y: -90, z: -90}
-  GrenadeObject: {fileID: 1516097666562846, guid: e33ba209d838cc943ae86866c8950346,
-    type: 3}
+  speed: 8
+  damage: 1
   explosiveDamage: 1
+  fusetime: 3
+  explosive: 1
+  grenade: 1
+  fused: 1
+  stun: 1
+  target: {x: 0, y: 0, z: 0}
+--- !u!54 &2822992757680871448
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516097666562846}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
+--- !u!135 &-3103420720029201742
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516097666562846}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: -0.0069666784, z: 0.0047538737}
 --- !u!1 &1602846664546522
 GameObject:
   m_ObjectHideFlags: 0
