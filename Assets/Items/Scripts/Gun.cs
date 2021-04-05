@@ -8,6 +8,8 @@ public class Gun : Item
     public GameObject MuzzleFlash;
     public GameObject bulletSpawn;
     public GameObject bullet;
+    public int numBullets = 1;
+    public float accuracy = 0;
 
     // Start is called before the first frame update
     override public void Start()
@@ -25,6 +27,14 @@ public class Gun : Item
     override public IEnumerator Use()
     {
         StartCoroutine(Flash());
+
+        /*
+        for(int i = 1; i <= numBullets; i++)
+        {
+            float temp = Random.Range(-accuracy, accuracy);
+            Instantiate(bullet, new Vector3(bulletSpawn.transform.position.x, 1, bulletSpawn.transform.position.z), new Quaternion(this.transform.rotation.x, this.transform.rotation.y + accuracy, this.transform.rotation.z, this.transform.rotation.w));
+        }
+        */
         GameObject temp = Instantiate(bullet, new Vector3(bulletSpawn.transform.position.x, 1, bulletSpawn.transform.position.z), this.transform.rotation);
         mag--;
         yield return new WaitForSeconds(rateOfFire);
