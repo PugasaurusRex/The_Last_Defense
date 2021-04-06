@@ -97,6 +97,7 @@ MonoBehaviour:
   damage: 1
   explosiveDamage: 1
   fusetime: 3
+  stuntime: 3
   explosive: 1
   grenade: 1
   fused: 1

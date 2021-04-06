@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
     public bool AttackPlayer = false;
     public bool AttackTowers = false;
     public float ViewDistance = 10f;
+    public bool flying = false;
 
     TowerShop TowerShopRef;
     GameObject TowerToTarget;
@@ -147,8 +148,9 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Attack()
     {
-        Anim.SetBool("Attack", false);
+        yield return new WaitForSeconds(attackCooldown);
 
+        // Deal Damage
         if (AttackPlayer && TargetObject == Player)
         {
             PlayerInfo.TakeDamage(damage);
@@ -162,7 +164,8 @@ public class EnemyController : MonoBehaviour
         {
             TargetObject.GetComponent<TowerController>().TakeDamage(damage);
         }
-        yield return new WaitForSeconds(attackCooldown);
+
+        Anim.SetBool("Attack", false);
         attacking = false;
     }
 
@@ -186,7 +189,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(Anim.runtimeAnimatorController.animationClips[3].length);
+        yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
         Player.GetComponent<PlayerController>().scrap += droppedScrap;
     }

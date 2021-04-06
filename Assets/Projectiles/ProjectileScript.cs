@@ -37,7 +37,7 @@ public class ProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (grenade && ((Vector3.Distance(this.transform.position, target) < .75 || Vector3.Distance(this.transform.position, spawn) > 10)))
+        if (grenade && ((Vector3.Distance(this.transform.position, target) < .5f || Vector3.Distance(this.transform.position, spawn) > 10f)))
         {
             Rig.velocity = Vector3.zero;
             if(!fused)
@@ -78,8 +78,6 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Rig.velocity = Vector3.zero;
-
         if (collision.collider.tag == "Enemy")
         {
             collision.collider.GetComponent<EnemyController>().TakeDamage(damage);
@@ -87,6 +85,7 @@ public class ProjectileScript : MonoBehaviour
         if(collision.collider.tag != "Player")
         {
             Explode();
+            Rig.velocity = Vector3.zero;
         }
     }
 

@@ -173,9 +173,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   damage: 1
+  explosiveDamage: 10
+  fusetime: 0
+  stuntime: 3
   explosive: 1
   grenade: 1
-  explosiveDamage: 10
+  fused: 0
+  stun: 0
   target: {x: 0, y: 0, z: 0}
 --- !u!54 &9002712977890889359
 Rigidbody:

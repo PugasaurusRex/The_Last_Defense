@@ -27,6 +27,7 @@ public class Grenade : Item
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
             target = new Vector3(hit.point.x, 1, hit.point.z);
+            Debug.Log(target);
         }
 
         GameObject temp = Instantiate(GrenadeObject, new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.rotation);

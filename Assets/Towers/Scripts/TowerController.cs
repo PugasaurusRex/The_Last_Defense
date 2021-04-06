@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     // Store All Enemies In Range of The Tower.
-    List<GameObject> InRange = new List<GameObject>();
+    public List<GameObject> InRange = new List<GameObject>();
 
     GameObject Wave;
     WaveController WaveInfo;
@@ -25,9 +25,12 @@ public class TowerController : MonoBehaviour
     public GameObject Projectile;
     public GameObject MuzzleFlash;
 
-    private int i = 0;
     private bool CanShoot = true;
     public bool useProjectile = true;
+
+    // Attack Line
+    public int segments = 50;
+    LineRenderer line;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,12 @@ public class TowerController : MonoBehaviour
         Wave = GameObject.Find("WaveController");
         WaveInfo = Wave.GetComponent<WaveController>();
         maxHealth = health;
+
+        line = gameObject.GetComponent<LineRenderer>();
+        line.positionCount = segments + 1;
+        line.useWorldSpace = false;
+        line.startWidth = .2f;
+        CreatePoints();
     }
 
     // Update is called once per frame
@@ -51,35 +60,29 @@ public class TowerController : MonoBehaviour
             {
                 if (InRange.Count > 0)
                 {
-                    if (i >= InRange.Count)
+                    if (InRange[0] == null)
                     {
-                        i = 0;
+                        InRange.RemoveAt(0);
+                        target = null;
                     }
-
-                    if (InRange[i] == null)
+                    else if (Vector3.Distance(this.transform.position, InRange[0].transform.position) > range)
                     {
-                        InRange.RemoveAt(i);
-                        i = 0;
+                        InRange.RemoveAt(0);
+                        target = null;
                     }
-
-                    if (i < InRange.Count && InRange[i] != null)
+                    else if(target == null)
                     {
-                        if (Vector3.Distance(this.transform.position, InRange[i].transform.position) > range)
+                        target = InRange[0].gameObject;
+                    }
+                    else
+                    {
+                        rotator.transform.LookAt(new Vector3(target.transform.position.x, rotator.transform.position.y, target.transform.position.z));
+
+                        if (CanShoot)
                         {
-                            InRange.RemoveAt(i);
-                        }
-                        else if (Vector3.Distance(this.transform.position, InRange[i].transform.position) < .5f)
-                        {
-                            target = InRange[i].gameObject;
-                        }
-                        else if (Physics.Raycast(this.transform.position, InRange[i].gameObject.transform.position - this.transform.position, out RaycastHit hit) && hit.collider.gameObject == InRange[i].gameObject)
-                        {
-                            target = InRange[i].gameObject;
-                        }
-                        else
-                        {
-                            target = null;
-                            i++;
+                            CanShoot = false;
+                            StartCoroutine(Flash());
+                            StartCoroutine(Shoot());
                         }
                     }
                 }
@@ -91,19 +94,6 @@ public class TowerController : MonoBehaviour
                         {
                             InRange.Add(i);
                         }
-                    }
-                }
-
-                if (target != null)
-                {
-                    rotator.transform.LookAt(target.transform.position);
-
-                    if (CanShoot)
-                    {
-                        CanShoot = false;
-                        MuzzleFlash.SetActive(true);
-                        StartCoroutine(Flash());
-                        StartCoroutine(Shoot());
                     }
                 }
             }
@@ -131,6 +121,7 @@ public class TowerController : MonoBehaviour
 
     IEnumerator Flash()
     {
+        MuzzleFlash.SetActive(true);
         yield return new WaitForSeconds(.05f);
         MuzzleFlash.SetActive(false);
     }
@@ -138,5 +129,23 @@ public class TowerController : MonoBehaviour
     public void TakeDamage(int incomingDamage)
     {
         health -= incomingDamage;
+    }
+
+    void CreatePoints()
+    {
+        float x;
+        float z;
+
+        float angle = 20f;
+
+        for (int i = 0; i < (segments + 1); i++)
+        {
+            x = Mathf.Sin(Mathf.Deg2Rad * angle) * range;
+            z = Mathf.Cos(Mathf.Deg2Rad * angle) * range;
+
+            line.SetPosition(i, new Vector3(x, .5f, z));
+
+            angle += (360f / segments);
+        }
     }
 }

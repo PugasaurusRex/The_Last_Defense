@@ -106,6 +106,7 @@ MonoBehaviour:
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 10
+  flying: 1
   health: 100
   armor: 0
 --- !u!135 &3815216116579032646
