@@ -25,39 +25,44 @@ public class Menu : MonoBehaviour
     bool ShopToggle = true;
     bool InvToggle = true;
     public bool CanPause = true;
+    int level;
 
     // Start is called before the first frame update
     void Start()
     {
         Controls = ControlMenu.GetComponent<SettingsController>();
+        level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Toggle Shop
-        if (Input.GetKeyDown(Controls.keys["ToggleShop"]))
+        if(level != 0)
         {
-            ToggleShop();
-        }
-
-        // Toggle Inventory
-        if (Input.GetKeyDown(Controls.keys["ToggleInventory"]))
-        {
-            ToggleInv();
-        }
-
-        // Pause
-        if (Input.GetButtonDown("Cancel") || Input.GetKeyDown(Controls.keys["Cancel"]))
-        {
-            if (CanPause)
+            // Toggle Shop
+            if (Input.GetKeyDown(Controls.keys["ToggleShop"]))
             {
-                PauseMenu.SetActive(true);
-                Time.timeScale = 0;
+                ToggleShop();
             }
-            else
+
+            // Toggle Inventory
+            if (Input.GetKeyDown(Controls.keys["ToggleInventory"]))
             {
-                CanPause = true;
+                ToggleInv();
+            }
+
+            // Pause
+            if (Input.GetButtonDown("Cancel") || Input.GetKeyDown(Controls.keys["Cancel"]))
+            {
+                if (CanPause)
+                {
+                    PauseMenu.SetActive(true);
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    CanPause = true;
+                }
             }
         }
     }

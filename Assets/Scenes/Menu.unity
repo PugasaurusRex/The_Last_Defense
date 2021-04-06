@@ -5487,6 +5487,18 @@ MonoBehaviour:
   p1: {fileID: 1274545359}
   p2: {fileID: 2090388691}
   p3: {fileID: 1010338459}
+  ControlMenu: {fileID: 2025232984}
+  UI: {fileID: 0}
+  GameOverScreen: {fileID: 0}
+  ShopMenu: {fileID: 0}
+  Inventory: {fileID: 0}
+  PauseMenu: {fileID: 0}
+  SettingsMenu: {fileID: 0}
+  ExitMenu: {fileID: 0}
+  VictoryScreen: {fileID: 0}
+  WaveInfo: {fileID: 0}
+  ShopInfo: {fileID: 0}
+  CanPause: 1
 --- !u!1 &1441649737
 GameObject:
   m_ObjectHideFlags: 0

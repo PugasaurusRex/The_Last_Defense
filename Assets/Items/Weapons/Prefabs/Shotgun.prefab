@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23904141403194016}
   - component: {fileID: 451647484188046743}
   m_Layer: 0
-  m_Name: Bennelli
+  m_Name: Shotgun
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,6 +110,8 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 4307994430326801237}
   bulletSpawn: {fileID: 4980731317822826016}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
+  numBullets: 5
+  accuracy: 20
 --- !u!1 &1326079549577358
 GameObject:
   m_ObjectHideFlags: 0

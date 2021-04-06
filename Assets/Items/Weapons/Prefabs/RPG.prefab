@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 23100547221564144}
   - component: {fileID: 7317674118480811424}
   m_Layer: 0
-  m_Name: RPG7
+  m_Name: RPG
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,6 +187,8 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 176499472733290577}
   bulletSpawn: {fileID: 9106407210911688947}
   bullet: {fileID: 2769693306594560029, guid: 1ea13ca007faac5459e924124f6a8827, type: 3}
+  numBullets: 1
+  accuracy: 4
 --- !u!1 &1922950281920760
 GameObject:
   m_ObjectHideFlags: 0

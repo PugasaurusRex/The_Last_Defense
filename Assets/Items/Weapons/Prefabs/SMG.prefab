@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 23702528113249380}
   - component: {fileID: 4961500810435584423}
   m_Layer: 0
-  m_Name: Uzi
+  m_Name: SMG
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,6 +189,8 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 5689089578548616604}
   bulletSpawn: {fileID: 5766647832790738432}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
+  numBullets: 1
+  accuracy: 4
 --- !u!1 &1382682361031114
 GameObject:
   m_ObjectHideFlags: 0

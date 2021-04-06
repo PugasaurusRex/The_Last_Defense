@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 23025737108156134}
   - component: {fileID: 8518486672682895734}
   m_Layer: 0
-  m_Name: M249
+  m_Name: LMG
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,6 +189,8 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 617173923116591369}
   bulletSpawn: {fileID: 4903940354107902375}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
+  numBullets: 1
+  accuracy: 7
 --- !u!1 &1564110021164438
 GameObject:
   m_ObjectHideFlags: 0

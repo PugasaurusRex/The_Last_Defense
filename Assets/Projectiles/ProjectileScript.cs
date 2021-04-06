@@ -62,7 +62,7 @@ public class ProjectileScript : MonoBehaviour
             }
             
         }
-        if (!explosive && other.gameObject.name != "Player" && other.gameObject.tag != "Tower" && other.gameObject.tag != "Floor")
+        if (!explosive && other.gameObject.tag != "Player" && other.gameObject.tag != "Tower" && other.gameObject.tag != "Floor")
         {
             Destroy(this.gameObject);
         }

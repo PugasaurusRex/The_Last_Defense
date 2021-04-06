@@ -15,7 +15,6 @@ public class Gun : Item
     override public void Start()
     {
         base.Start();
-        
     }
 
     // Update is called once per frame
@@ -28,14 +27,12 @@ public class Gun : Item
     {
         StartCoroutine(Flash());
 
-        /*
         for(int i = 1; i <= numBullets; i++)
         {
             float temp = Random.Range(-accuracy, accuracy);
-            Instantiate(bullet, new Vector3(bulletSpawn.transform.position.x, 1, bulletSpawn.transform.position.z), new Quaternion(this.transform.rotation.x, this.transform.rotation.y + accuracy, this.transform.rotation.z, this.transform.rotation.w));
+            Instantiate(bullet, new Vector3(bulletSpawn.transform.position.x, 1, bulletSpawn.transform.position.z), transform.rotation * Quaternion.Euler(0, temp, 0));
         }
-        */
-        GameObject temp = Instantiate(bullet, new Vector3(bulletSpawn.transform.position.x, 1, bulletSpawn.transform.position.z), this.transform.rotation);
+
         mag--;
         yield return new WaitForSeconds(rateOfFire);
         PlayerInfo.Anim.SetBool("Shoot", false);

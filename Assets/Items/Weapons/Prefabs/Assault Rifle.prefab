@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23280471604157296}
   - component: {fileID: -2534722652159427809}
   m_Layer: 0
-  m_Name: M4
+  m_Name: Assault Rifle
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,6 +113,8 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 2928460526583549363}
   bulletSpawn: {fileID: 3016742200716599128}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
+  numBullets: 1
+  accuracy: 1
 --- !u!1 &1426050648627750
 GameObject:
   m_ObjectHideFlags: 0

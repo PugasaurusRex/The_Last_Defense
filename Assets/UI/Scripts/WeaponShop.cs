@@ -30,7 +30,10 @@ public class WeaponShop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(PlayerInfo.Controls.keys["SwapWeapon"]))
+        {
+            SwapWeapon();
+        }
     }
 
     public void SetActiveItem(int id)
@@ -66,5 +69,27 @@ public class WeaponShop : MonoBehaviour
     public void ToggleConfirmation(bool visible)
     {
         ConfirmMenu.SetActive(visible);
+    }
+
+    public void SwapWeapon()
+    {
+        Debug.Log(lastId);
+        bool swap = false;
+        if(purchasedItems.Count > 1)
+        {
+            for(int i = lastId + 1; i < 14; i++)
+            {
+                if(purchasedItems.Contains(items[i]))
+                {
+                    SetActiveItem(i);
+                    swap = true;
+                    break;
+                }
+            }
+            if(!swap)
+            {
+                SetActiveItem(0);
+            }
+        }
     }
 }

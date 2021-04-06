@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody Rig;
     public Animator Anim;
     public GameObject ControlMenu;
-    SettingsController Controls;
+    public SettingsController Controls;
     public GameObject GunHand;
 
     // Gamestate Variables

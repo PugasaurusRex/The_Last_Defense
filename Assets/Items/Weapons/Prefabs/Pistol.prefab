@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 4952727429218122}
   - component: {fileID: -7536663911494656961}
   m_Layer: 0
-  m_Name: M1911
+  m_Name: Pistol
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,6 +247,8 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 4981539999528191012}
   bulletSpawn: {fileID: 3250241043533885959}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
+  numBullets: 1
+  accuracy: 3
 --- !u!1 &1748277932983872
 GameObject:
   m_ObjectHideFlags: 0
