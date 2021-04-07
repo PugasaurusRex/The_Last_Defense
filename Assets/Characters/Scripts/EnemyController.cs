@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -33,9 +34,14 @@ public class EnemyController : MonoBehaviour
     public int health = 100;
     public int armor = 0;
 
+    int maxHealth;
+    public Image healthDisplay;
+
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = health;
+
         // Get GameObjects
         Player = GameObject.Find("Player");
         PlayerInfo = Player.GetComponent<PlayerController>();
@@ -61,6 +67,10 @@ public class EnemyController : MonoBehaviour
     {
         if(Time.timeScale != 0)
         {
+            healthDisplay.fillAmount = (float)health / maxHealth;
+
+            healthDisplay.transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
+
             if (!Anim.GetBool("Dead"))
             {
                 if (AttackPlayer)

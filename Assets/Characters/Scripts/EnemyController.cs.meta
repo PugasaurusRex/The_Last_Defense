@@ -3,7 +3,11 @@ guid: 0bf868ba2958f6f49a303240036778e8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - healthDisplay: {fileID: 5528682104777064110, guid: 5dfbbd9a5ef291845af34ea855a13af4,
+      type: 3}
+  - armorDisplay: {fileID: 3648437825196317040, guid: ad11e0e887971f44a93bb0fe4ebd3d86,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

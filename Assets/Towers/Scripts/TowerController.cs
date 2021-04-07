@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerController : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class TowerController : MonoBehaviour
     public int segments = 50;
     public LineRenderer line;
 
+    public Image healthDisplay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +56,9 @@ public class TowerController : MonoBehaviour
     {
         if(Time.timeScale != 0)
         {
+            healthDisplay.fillAmount = (float)health / maxHealth;
+            healthDisplay.transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
+
             if (health <= 0)
             {
                 GameObject.Find("TowerShopUI").GetComponent<TowerShop>().PlacedTowers.Remove(this.gameObject);
@@ -164,7 +170,5 @@ public class TowerController : MonoBehaviour
                 angle += (360f / segments);
             }
         }
-
-        
     }
 }
