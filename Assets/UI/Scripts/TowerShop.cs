@@ -22,6 +22,8 @@ public class TowerShop : MonoBehaviour
 
     PlayerController PlayerInfo;
 
+    public bool lineVisible = false;
+
     // Tower Prices
     public int RiflePrice = 100;
     public int SniperPrice = 100;
@@ -146,6 +148,15 @@ public class TowerShop : MonoBehaviour
             if (TempTower != null)
             {
                 PlayerInfo.MouseUsed = true;
+            }
+
+            if (Input.GetKeyDown(Controls.keys["ToggleLines"]))
+            {
+                lineVisible = !lineVisible;
+                foreach(GameObject i in PlacedTowers)
+                {
+                    i.GetComponent<TowerController>().line.enabled = lineVisible;
+                }
             }
         }
     }

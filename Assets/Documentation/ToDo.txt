@@ -1,0 +1,11 @@
+- Towers to not shoot through walls
+- Enemy Healthbars
+- Finish new tower implementation
+- Flying enemies and integration with towers
+- Particles
+- Audio
+
+- Levels
+
+- Play Test / Polish
+- Balancing

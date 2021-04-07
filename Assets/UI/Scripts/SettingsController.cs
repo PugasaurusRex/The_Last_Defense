@@ -24,6 +24,8 @@ public class SettingsController : MonoBehaviour
     public TMP_Text shop;
     public TMP_Text inventory;
     public TMP_Text swap;
+    public TMP_Text lines;
+    public TMP_Text map;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,8 @@ public class SettingsController : MonoBehaviour
         keys.Add("ToggleShop", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ToggleShop", "E")));
         keys.Add("ToggleInventory", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ToggleInventory", "F")));
         keys.Add("SwapWeapon", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("SwapWeapon", "Q")));
+        keys.Add("ToggleLines", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ToggleLines", "T")));
+        keys.Add("ToggleCamera", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("ToggleCamera", "C")));
 
         SetText();
     }
@@ -108,5 +112,7 @@ public class SettingsController : MonoBehaviour
         shop.text = PlayerPrefs.GetString("ToggleShop", "E");
         inventory.text = PlayerPrefs.GetString("ToggleInventory", "F");
         swap.text = PlayerPrefs.GetString("SwapWeapon", "Q");
+        lines.text = PlayerPrefs.GetString("ToggleLines", "T");
+        map.text = PlayerPrefs.GetString("ToggleMap", "C");
     }
 }

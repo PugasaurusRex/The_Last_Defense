@@ -30,7 +30,7 @@ public class TowerController : MonoBehaviour
 
     // Attack Line
     public int segments = 50;
-    LineRenderer line;
+    public LineRenderer line;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +39,13 @@ public class TowerController : MonoBehaviour
         WaveInfo = Wave.GetComponent<WaveController>();
         maxHealth = health;
 
+        // Create range line
         line = gameObject.GetComponent<LineRenderer>();
         line.positionCount = segments + 1;
         line.useWorldSpace = false;
         line.startWidth = .2f;
         CreatePoints();
+        line.enabled = GameObject.Find("TowerShopUI").GetComponent<TowerShop>().lineVisible;
     }
 
     // Update is called once per frame
@@ -138,14 +140,31 @@ public class TowerController : MonoBehaviour
 
         float angle = 20f;
 
-        for (int i = 0; i < (segments + 1); i++)
+        if(this.transform.lossyScale.x < 1)
         {
-            x = Mathf.Sin(Mathf.Deg2Rad * angle) * range;
-            z = Mathf.Cos(Mathf.Deg2Rad * angle) * range;
+            for (int i = 0; i < (segments + 1); i++)
+            {
+                x = Mathf.Sin(Mathf.Deg2Rad * angle) * range * 4;
+                z = Mathf.Cos(Mathf.Deg2Rad * angle) * range * 4;
 
-            line.SetPosition(i, new Vector3(x, .5f, z));
+                line.SetPosition(i, new Vector3(x, .5f, z));
 
-            angle += (360f / segments);
+                angle += (360f / segments);
+            }
         }
+        else
+        {
+            for (int i = 0; i < (segments + 1); i++)
+            {
+                x = Mathf.Sin(Mathf.Deg2Rad * angle) * range;
+                z = Mathf.Cos(Mathf.Deg2Rad * angle) * range;
+
+                line.SetPosition(i, new Vector3(x, .5f, z));
+
+                angle += (360f / segments);
+            }
+        }
+
+        
     }
 }

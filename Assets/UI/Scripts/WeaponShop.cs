@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponShop : MonoBehaviour
 {
     public GameObject[] items;
+    public int[] mags;
     public List<GameObject> purchasedItems = new List<GameObject>();
 
     public GameObject Player;
@@ -49,12 +50,14 @@ public class WeaponShop : MonoBehaviour
         {
             if (PlayerInfo.ActiveWeapon != null)
             {
+                mags[lastId] = PlayerInfo.ActiveWeaponInfo.mag;
                 Destroy(PlayerInfo.ActiveWeapon);
             }
 
             GameObject temp = Instantiate(items[id]);
             PlayerInfo.ActiveWeapon = temp;
             PlayerInfo.ActiveWeaponInfo = temp.GetComponent<Item>();
+            PlayerInfo.ActiveWeaponInfo.mag = mags[id];
             lastId = id;
         }
     }
@@ -73,7 +76,6 @@ public class WeaponShop : MonoBehaviour
 
     public void SwapWeapon()
     {
-        Debug.Log(lastId);
         bool swap = false;
         if(purchasedItems.Count > 1)
         {
