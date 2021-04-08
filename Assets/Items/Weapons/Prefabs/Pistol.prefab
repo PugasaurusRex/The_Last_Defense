@@ -242,7 +242,7 @@ MonoBehaviour:
   mag: 0
   Player: {fileID: 0}
   PlayerInfo: {fileID: 0}
-  HandPosition: {x: 0.0047, y: -0.0969, z: 0.0354}
+  HandPosition: {x: 0.005, y: -0.0267, z: 0.0195}
   HandRotation: {x: -90, y: -90, z: -90}
   MuzzleFlash: {fileID: 4981539999528191012}
   bulletSpawn: {fileID: 3250241043533885959}

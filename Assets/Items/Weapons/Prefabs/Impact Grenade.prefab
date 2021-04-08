@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 23614443034357060}
   - component: {fileID: 2311659278252612581}
   m_Layer: 0
-  m_Name: Impact
+  m_Name: Impact Grenade
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   mag: 0
   Player: {fileID: 0}
   PlayerInfo: {fileID: 0}
-  HandPosition: {x: 0.0047, y: -0.0969, z: 0.0354}
+  HandPosition: {x: 0.0047, y: -0.0095, z: 0.0354}
   HandRotation: {x: -90, y: -90, z: -90}
   GrenadeObject: {fileID: 1698056052845220, guid: ea322a9ee8a44c347a09065f73106bc3,
     type: 3}

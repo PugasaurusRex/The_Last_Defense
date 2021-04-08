@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23559475949960412}
   - component: {fileID: -7493515759814624405}
   m_Layer: 0
-  m_Name: Flash
+  m_Name: Flash Grenade
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   mag: 0
   Player: {fileID: 0}
   PlayerInfo: {fileID: 0}
-  HandPosition: {x: 0.0047, y: -0.0969, z: 0.0354}
+  HandPosition: {x: 0.0047, y: -0.0095, z: 0.0354}
   HandRotation: {x: -90, y: -90, z: -90}
   GrenadeObject: {fileID: 1516097666562846, guid: e33ba209d838cc943ae86866c8950346,
     type: 3}

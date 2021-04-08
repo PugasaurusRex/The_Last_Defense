@@ -101,11 +101,12 @@ MonoBehaviour:
   mag: 0
   Player: {fileID: 0}
   PlayerInfo: {fileID: 0}
-  HandPosition: {x: 0.0047, y: -0.0969, z: 0.0354}
-  HandRotation: {x: -90, y: -90, z: -90}
+  HandPosition: {x: -0.023, y: 0.082, z: 0.008}
+  HandRotation: {x: 0, y: 0, z: 180}
   health: 1
   armor: 0
   stim: 0
   tower: 0
   distance: 0
   healAmount: 20
+  stimLength: 0

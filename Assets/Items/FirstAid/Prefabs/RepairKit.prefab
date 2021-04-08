@@ -55,7 +55,7 @@ MonoBehaviour:
   mag: 0
   Player: {fileID: 0}
   PlayerInfo: {fileID: 0}
-  HandPosition: {x: 0.0047, y: -0.0969, z: 0.0354}
+  HandPosition: {x: 0, y: -0.07, z: -0.05}
   HandRotation: {x: -90, y: -90, z: -90}
   health: 0
   armor: 0
@@ -63,6 +63,7 @@ MonoBehaviour:
   tower: 1
   distance: 5
   healAmount: 20
+  stimLength: 0
 --- !u!1 &2068188630536345436
 GameObject:
   m_ObjectHideFlags: 0
