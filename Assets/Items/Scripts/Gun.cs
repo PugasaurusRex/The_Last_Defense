@@ -29,8 +29,9 @@ public class Gun : Item
 
         for(int i = 1; i <= numBullets; i++)
         {
-            float temp = Random.Range(-accuracy, accuracy);
-            Instantiate(bullet, new Vector3(bulletSpawn.transform.position.x, 1, bulletSpawn.transform.position.z), transform.rotation * Quaternion.Euler(0, temp, 0));
+            float acc = Random.Range(-accuracy, accuracy);
+            GameObject temp = Instantiate(bullet, new Vector3(bulletSpawn.transform.position.x, 1, bulletSpawn.transform.position.z), transform.rotation * Quaternion.Euler(0, acc + 180, 0));
+            temp.GetComponent<ProjectileScript>().damage = damage;
         }
 
         mag--;

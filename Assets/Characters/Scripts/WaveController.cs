@@ -63,6 +63,7 @@ public class WaveController : MonoBehaviour
         }
 
         // Populate Waves
+        // Weak, Weak Armored, Weak Flying, Medium Armor, Fast, Tank, Flying Tank, Boss
         WaveList[0].Add(new Enemy(0, 10, .5f));
     }
 

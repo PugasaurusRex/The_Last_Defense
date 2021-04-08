@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2769693306594560029
+--- !u!1 &1222036515553498
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2769693306594989117}
-  - component: {fileID: 2769693306595791901}
-  - component: {fileID: 2769693306596759261}
-  - component: {fileID: -1022363959422415516}
-  - component: {fileID: -4451420542309460230}
-  - component: {fileID: -4866859229099361625}
-  - component: {fileID: 6231857568331525729}
+  - component: {fileID: 4127498776530826}
+  - component: {fileID: 33820498834923606}
+  - component: {fileID: 23066208943694066}
   m_Layer: 0
-  m_Name: Rocket
-  m_TagString: Player
+  m_Name: Bullet02
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2769693306594989117
+--- !u!4 &4127498776530826
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769693306594560029}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.0029536244, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 1222036515553498}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4389153839620792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2769693306595791901
+--- !u!33 &33820498834923606
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769693306594560029}
-  m_Mesh: {fileID: 4300004, guid: 4e5ce0b6f97fdbc40b7bc818b06b80ba, type: 3}
---- !u!23 &2769693306596759261
+  m_GameObject: {fileID: 1222036515553498}
+  m_Mesh: {fileID: 4300000, guid: bc02584501fe4c546b6b0b55239d59ef, type: 3}
+--- !u!23 &23066208943694066
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769693306594560029}
+  m_GameObject: {fileID: 1222036515553498}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 28f0b13c7e9707746b5e0b3336181560, type: 2}
+  - {fileID: 2100000, guid: df80e43d0e98e934e90be1493ab2cb20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -72,7 +68,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -81,35 +77,47 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-1022363959422415516
-MonoBehaviour:
+--- !u!1 &1552339098034316
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769693306594560029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a75db8c61d046e148abbc99ce80b29cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 16
-  damage: 5
-  explosiveDamage: 100
-  fusetime: 0
-  stuntime: 3
-  explosive: 1
-  grenade: 0
-  fused: 0
-  stun: 0
-  target: {x: 0, y: 0, z: 0}
---- !u!54 &-4451420542309460230
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4389153839620792}
+  - component: {fileID: -5215122950255232638}
+  - component: {fileID: 753573654284794689}
+  - component: {fileID: 8340266895992127437}
+  m_Layer: 0
+  m_Name: MortarShot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4389153839620792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552339098034316}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4127498776530826}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!54 &-5215122950255232638
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769693306594560029}
+  m_GameObject: {fileID: 1552339098034316}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -119,30 +127,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 36
   m_CollisionDetection: 0
---- !u!136 &-4866859229099361625
-CapsuleCollider:
+--- !u!114 &753573654284794689
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769693306594560029}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 1552339098034316}
   m_Enabled: 1
-  m_Radius: 0.09
-  m_Height: 0.89
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: -0.29034472}
---- !u!135 &6231857568331525729
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75db8c61d046e148abbc99ce80b29cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  damage: 10
+  explosiveDamage: 10
+  fusetime: 0
+  stuntime: 3
+  range: 30
+  explosive: 1
+  grenade: 1
+  fused: 0
+  stun: 1
+  target: {x: 0, y: 0, z: 0}
+--- !u!135 &8340266895992127437
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769693306594560029}
+  m_GameObject: {fileID: 1552339098034316}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: -0.29034472}
+  m_Radius: 6
+  m_Center: {x: 0, y: 0, z: 0}

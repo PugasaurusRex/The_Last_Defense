@@ -97,6 +97,7 @@ MonoBehaviour:
   cost: 0
   reloadTime: 3
   rateOfFire: 0.7
+  damage: 2
   rifle: 1
   usingItem: 0
   canUse: 1

@@ -171,6 +171,7 @@ MonoBehaviour:
   cost: 0
   reloadTime: 1
   rateOfFire: 1
+  damage: 1
   rifle: 0
   usingItem: 0
   canUse: 1

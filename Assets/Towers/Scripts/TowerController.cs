@@ -16,6 +16,9 @@ public class TowerController : MonoBehaviour
     public int maxHealth;
 
     // Tower Variables
+    public bool shootFlying = false;
+    public bool shootGround = true;
+
     public int damage = 10;
     public float range = 10;
     public float fireRate = 1f;
@@ -28,6 +31,7 @@ public class TowerController : MonoBehaviour
 
     private bool CanShoot = true;
     public bool useProjectile = true;
+    public GameObject BulletSpawn;
 
     // Attack Line
     public int segments = 50;
@@ -100,7 +104,15 @@ public class TowerController : MonoBehaviour
                     {
                         if (Vector3.Distance(this.transform.position, i.transform.position) <= range)
                         {
-                            InRange.Add(i);
+                            bool temp = i.GetComponent<EnemyController>().flying;
+                            if (temp && shootFlying)
+                            {
+                                InRange.Add(i);
+                            }
+                            else if(!temp && shootGround)
+                            {
+                                InRange.Add(i);
+                            }
                         }
                     }
                 }
@@ -112,7 +124,10 @@ public class TowerController : MonoBehaviour
     {
         if (useProjectile)
         {
-            Instantiate(Projectile, new Vector3(rotator.transform.position.x, 1, rotator.transform.position.z), rotator.transform.rotation);
+            GameObject temp = Instantiate(Projectile, new Vector3(BulletSpawn.transform.position.x, 1, BulletSpawn.transform.position.z), rotator.transform.rotation);
+            temp.GetComponent<ProjectileScript>().damage = damage;
+            temp.GetComponent<ProjectileScript>().range = range;
+            temp.GetComponent<ProjectileScript>().target = target.transform.position;
         }
         else
         {

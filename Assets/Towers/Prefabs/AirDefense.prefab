@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 4343741383682628}
   - {fileID: 2964210095437897879}
+  - {fileID: 9025962830507811811}
   m_Father: {fileID: 4343475464199076}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5216,14 +5217,17 @@ MonoBehaviour:
   InRange: []
   health: 100
   maxHealth: 0
+  shootFlying: 1
+  shootGround: 0
   damage: 10
-  range: 10
+  range: 20
   fireRate: 1
-  accuracy: 0.8
+  accuracy: 1
   rotator: {fileID: 1399252442041522}
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1552339098034316, guid: 3b863dd590fe45e4f8e7be33ed0da28d, type: 3}
   MuzzleFlash: {fileID: 2964210095438120487}
-  useProjectile: 0
+  useProjectile: 1
+  BulletSpawn: {fileID: 7584929859662845790}
   segments: 50
   line: {fileID: 0}
   healthDisplay: {fileID: 4944299925331970154}
@@ -10370,6 +10374,36 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &7584929859662845790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9025962830507811811}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9025962830507811811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584929859662845790}
+  m_LocalRotation: {x: 0.258819, y: -0, z: -0, w: 0.9659259}
+  m_LocalPosition: {x: 0.053, y: -0.19, z: 1.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4449972934297182}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2964210095437984315
 PrefabInstance:
   m_ObjectHideFlags: 0

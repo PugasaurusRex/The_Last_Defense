@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     public int cost;
     public float reloadTime;
     public float rateOfFire;
+    public int damage = 0;
     public bool rifle = false;
 
     public bool usingItem = false;

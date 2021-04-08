@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 5013953129317738140}
   - component: {fileID: 3072372883583885599}
   m_Layer: 0
-  m_Name: M107_Scoped
+  m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,6 +485,7 @@ MonoBehaviour:
   cost: 0
   reloadTime: 4
   rateOfFire: 1
+  damage: 20
   rifle: 1
   usingItem: 0
   canUse: 1
@@ -498,6 +499,8 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 6002834165470744565}
   bulletSpawn: {fileID: 7152558965887218920}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
+  numBullets: 1
+  accuracy: 0
 --- !u!1 &7152558965887218920
 GameObject:
   m_ObjectHideFlags: 0
