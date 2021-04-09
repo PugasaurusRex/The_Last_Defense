@@ -36,9 +36,17 @@ public class PlayerController : MonoBehaviour
 
     public bool MouseUsed = false;
 
+    // Audio
+    AudioSource Speaker;
+    public AudioClip DieSound;
+    public AudioClip WalkSound;
+    public AudioClip TakeDamageSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        Speaker = GetComponent<AudioSource>();
+
         Rig = this.GetComponent<Rigidbody>();
         Anim = this.GetComponent<Animator>();
         Controls = ControlMenu.GetComponent<SettingsController>();

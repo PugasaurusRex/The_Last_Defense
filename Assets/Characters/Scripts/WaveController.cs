@@ -27,16 +27,16 @@ public class WaveController : MonoBehaviour
     public GameObject temp = null;
 
     public GameObject[] Spawns;
-    public int numSpawns = 0;
+    int numSpawns = 0;
 
     public int level = 0;
     public int wave = 0;
     public bool inWave = false;
-    public bool canSpawn = true;
-    public int spawnpoint = 0;
+    bool canSpawn = true;
+    int spawnpoint = 0;
 
-    public int numSpawned = 0;
-    public int num = 0;
+    int numSpawned = 0;
+    int num = 0;
 
     public List<List<Enemy>> WaveList = new List<List<Enemy>>();
     public List<GameObject> AliveEnemies = new List<GameObject>();
@@ -130,6 +130,9 @@ public class WaveController : MonoBehaviour
             {
                 temp = Instantiate(L3Enemies[WaveList[wave - 1][num].id], Spawns[spawnpoint].transform.position, Quaternion.identity);
             }
+            temp.GetComponent<EnemyController>().Gate = Spawns[spawnpoint].GetComponent<GateController>().ChooseGate();
+            temp.GetComponent<EnemyController>().passGate = false;
+            temp.GetComponent<EnemyController>().SetTargetGoal();
 
             AliveEnemies.Add(temp);
             spawnpoint = SpawnCounter(spawnpoint);

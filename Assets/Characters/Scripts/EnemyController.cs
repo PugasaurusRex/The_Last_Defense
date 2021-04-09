@@ -13,6 +13,9 @@ public class EnemyController : MonoBehaviour
     PlayerController PlayerInfo;
     Animator Anim;
 
+    public GameObject Gate;
+    public bool passGate = true;
+
     GameObject TargetObject;
     public Vector3 target;
 
@@ -53,8 +56,7 @@ public class EnemyController : MonoBehaviour
         Anim = this.GetComponent<Animator>();
 
         // Set starting target
-        target = Goal.transform.position;
-        TargetObject = Goal;
+        SetTargetGoal();
 
         // Start navmesh
         myNav = this.gameObject.GetComponent<NavMeshAgent>();
@@ -82,8 +84,7 @@ public class EnemyController : MonoBehaviour
                     }
                     else
                     {
-                        target = Goal.transform.position;
-                        TargetObject = Goal;
+                        SetTargetGoal();
                     }
                 }
 
@@ -109,15 +110,14 @@ public class EnemyController : MonoBehaviour
                         if (TargetObject == null)
                         {
                             targeting = false;
-                            target = Goal.transform.position;
-                            TargetObject = Goal;
+                            SetTargetGoal();
                         }
                     }
                 }
 
                 this.transform.LookAt(myNav.nextPosition);
 
-                if (Vector3.Distance(this.transform.position, target) < attackDistance)
+                if (Vector3.Distance(this.transform.position, target) < attackDistance && TargetObject != Gate)
                 {
                     myNav.isStopped = true;
                     Anim.SetBool("Moving", false);
@@ -128,6 +128,11 @@ public class EnemyController : MonoBehaviour
                         Anim.SetBool("Attack", true);
                         StartCoroutine(Attack());
                     }
+                }
+                else if(TargetObject == Gate && Vector3.Distance(this.transform.position, target) < attackDistance)
+                {
+                    passGate = true;
+                    SetTargetGoal();
                 }
 
                 if (health <= 0)
@@ -210,5 +215,19 @@ public class EnemyController : MonoBehaviour
         myNav.speed = 1;
         yield return new WaitForSeconds(stunTime);
         myNav.speed = temp;
+    }
+
+    public void SetTargetGoal()
+    {
+        if(passGate)
+        {
+            target = Goal.transform.position;
+            TargetObject = Goal;
+        }
+        else
+        {
+            target = Gate.transform.position;
+            TargetObject = Gate;
+        }
     }
 }

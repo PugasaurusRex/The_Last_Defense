@@ -29,7 +29,7 @@ public class Grenade : Item
             target = new Vector3(hit.point.x, 1, hit.point.z);
         }
 
-        GameObject temp = Instantiate(GrenadeObject, new Vector3(this.transform.position.x, 1, this.transform.position.z), this.transform.rotation);
+        GameObject temp = Instantiate(GrenadeObject, new Vector3(this.transform.position.x, 1, this.transform.position.z), transform.rotation * Quaternion.Euler(0, 180, 0));
         temp.GetComponent<ProjectileScript>().target = target;
         mag--;
         yield return new WaitForSeconds(rateOfFire);

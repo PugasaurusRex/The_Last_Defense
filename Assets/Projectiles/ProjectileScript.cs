@@ -22,9 +22,14 @@ public class ProjectileScript : MonoBehaviour
 
     private List<EnemyController> InRange = new List<EnemyController>();
 
+    AudioSource Speaker;
+    public AudioClip ExplodeSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        Speaker = GetComponent<AudioSource>();
+
         Rig = this.GetComponent<Rigidbody>();
         Rig.velocity = this.transform.forward * speed;
         spawn = this.transform.position;
@@ -91,7 +96,10 @@ public class ProjectileScript : MonoBehaviour
 
     public void Explode()
     {
-        if(stun)
+        Speaker.clip = ExplodeSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
+        if (stun)
         {
             foreach (EnemyController i in InRange)
             {

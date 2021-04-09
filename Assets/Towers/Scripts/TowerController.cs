@@ -39,9 +39,17 @@ public class TowerController : MonoBehaviour
 
     public Image healthDisplay;
 
+    // Audio
+    AudioSource Speaker;
+    public AudioClip DieSound;
+    public AudioClip ShootSound;
+    public AudioClip TakeDamageSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        Speaker = GetComponent<AudioSource>();
+
         Wave = GameObject.Find("WaveController");
         WaveInfo = Wave.GetComponent<WaveController>();
         maxHealth = health;
