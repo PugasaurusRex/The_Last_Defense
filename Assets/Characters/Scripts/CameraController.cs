@@ -33,6 +33,8 @@ public class CameraController : MonoBehaviour
         {
             float z = Input.GetAxisRaw("Mouse ScrollWheel");
 
+            z = z * -1;
+
             if (z > 0 && zoom < maxZoom)
             {
                 zoom += z * zSpeed;

@@ -453,6 +453,7 @@ Transform:
   m_Children:
   - {fileID: 4439265231336536}
   - {fileID: 6591098045098050754}
+  - {fileID: 4241224352004625903}
   m_Father: {fileID: 4163497313462406}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -613,10 +614,13 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   MuzzleFlash: {fileID: 6591098045097828978}
   useProjectile: 0
-  BulletSpawn: {fileID: 0}
+  BulletSpawn: {fileID: 6222052693186315600}
   segments: 50
   line: {fileID: 0}
   healthDisplay: {fileID: 4612116833627011626}
+  DieSound: {fileID: 0}
+  ShootSound: {fileID: 0}
+  TakeDamageSound: {fileID: 0}
 --- !u!120 &6031305665550550103
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1222,6 +1226,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6222052693186315600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4241224352004625903}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4241224352004625903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6222052693186315600}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.973, y: 0.487, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4588262437761088}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5330237835687850684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1452,15 +1486,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b955daae02e019d45a8fb68cfd843784, type: 3}
---- !u!1 &6591098045097828978 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 160796, guid: b955daae02e019d45a8fb68cfd843784,
-    type: 3}
-  m_PrefabInstance: {fileID: 6591098045097678446}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6591098045098050754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 447148, guid: b955daae02e019d45a8fb68cfd843784,
+    type: 3}
+  m_PrefabInstance: {fileID: 6591098045097678446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6591098045097828978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 160796, guid: b955daae02e019d45a8fb68cfd843784,
     type: 3}
   m_PrefabInstance: {fileID: 6591098045097678446}
   m_PrefabAsset: {fileID: 0}

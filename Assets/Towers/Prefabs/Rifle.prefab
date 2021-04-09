@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3370027625605213823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4849532284741246850}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4849532284741246850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370027625605213823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.68, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5972686337705772062}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5975862087637617934
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,10 +405,13 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   MuzzleFlash: {fileID: 349849507548290935}
   useProjectile: 0
-  BulletSpawn: {fileID: 0}
+  BulletSpawn: {fileID: 3370027625605213823}
   segments: 50
   line: {fileID: 0}
   healthDisplay: {fileID: 1611821954058793653}
+  DieSound: {fileID: 0}
+  ShootSound: {fileID: 0}
+  TakeDamageSound: {fileID: 0}
 --- !u!120 &3338293842919915550
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -706,6 +739,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 349849507548527047}
+  - {fileID: 4849532284741246850}
   m_Father: {fileID: 5972686338973807884}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -80,29 +80,28 @@ public class TowerController : MonoBehaviour
             {
                 if (InRange.Count > 0)
                 {
-                    if (InRange[0] == null)
+                    if (InRange[0] == null || Vector3.Distance(this.transform.position, InRange[0].transform.position) > range)
                     {
                         InRange.RemoveAt(0);
                         target = null;
                     }
-                    else if (Vector3.Distance(this.transform.position, InRange[0].transform.position) > range)
+                    else if(Physics.Raycast(BulletSpawn.transform.position, (InRange[0].transform.position - BulletSpawn.transform.position).normalized, out RaycastHit hit))
                     {
-                        InRange.RemoveAt(0);
-                        target = null;
-                    }
-                    else if(target == null)
-                    {
-                        target = InRange[0].gameObject;
-                    }
-                    else
-                    {
-                        rotator.transform.LookAt(new Vector3(target.transform.position.x, rotator.transform.position.y, target.transform.position.z));
-
-                        if (CanShoot)
+                        if (Mathf.Abs(hit.distance - Vector3.Distance(InRange[0].transform.position, BulletSpawn.transform.position)) < 3f)
                         {
-                            CanShoot = false;
-                            StartCoroutine(Flash());
-                            StartCoroutine(Shoot());
+                            target = InRange[0].gameObject;
+                            rotator.transform.LookAt(new Vector3(target.transform.position.x, rotator.transform.position.y, target.transform.position.z));
+                            if (CanShoot)
+                            {
+                                CanShoot = false;
+                                StartCoroutine(Flash());
+                                StartCoroutine(Shoot());
+                            }
+                        }
+                        else
+                        {
+                            InRange.RemoveAt(0);
+                            target = null;
                         }
                     }
                 }
