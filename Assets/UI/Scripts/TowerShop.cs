@@ -66,9 +66,15 @@ public class TowerShop : MonoBehaviour
     public TMP_Text AccuracyText;
     public TMP_Text FireRateText;
 
+    AudioSource Speaker;
+    public AudioClip SelectTowerSound;
+    public AudioClip BuyTowerSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        Speaker = GetComponent<AudioSource>();
+
         Player = GameObject.Find("Player");
         PlayerInfo = Player.GetComponent<PlayerController>();
 
@@ -176,6 +182,9 @@ public class TowerShop : MonoBehaviour
         MenuSettings.CanPause = false;
         PlayerInfo.placingTower = true;
 
+        Speaker.clip = SelectTowerSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         // Spawn corresponding tower
         switch (TowerId)
         {
@@ -217,6 +226,10 @@ public class TowerShop : MonoBehaviour
     void PlaceTower(Vector3 Point, Quaternion Rot)
     {
         GameObject Temp = null;
+
+        Speaker.clip = BuyTowerSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         switch (TowerId)
         {
             case 1:

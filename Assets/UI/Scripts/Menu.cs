@@ -27,9 +27,17 @@ public class Menu : MonoBehaviour
     public bool CanPause = true;
     int level;
 
+    AudioSource Speaker;
+    public AudioClip ApplySound;
+    public AudioClip CancelSound;
+    public AudioClip ForwardSound;
+    public AudioClip BackwardSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        Speaker = GetComponent<AudioSource>();
+
         Controls = ControlMenu.GetComponent<SettingsController>();
         level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
     }
@@ -42,12 +50,18 @@ public class Menu : MonoBehaviour
             // Toggle Shop
             if (Input.GetKeyDown(Controls.keys["ToggleShop"]))
             {
+                Speaker.clip = ApplySound;
+                Speaker.PlayOneShot(Speaker.clip);
+
                 ToggleShop();
             }
 
             // Toggle Inventory
             if (Input.GetKeyDown(Controls.keys["ToggleInventory"]))
             {
+                Speaker.clip = ApplySound;
+                Speaker.PlayOneShot(Speaker.clip);
+
                 ToggleInv();
             }
 
@@ -56,11 +70,17 @@ public class Menu : MonoBehaviour
             {
                 if (CanPause)
                 {
+                    Speaker.clip = ApplySound;
+                    Speaker.PlayOneShot(Speaker.clip);
+
                     PauseMenu.SetActive(true);
                     Time.timeScale = 0;
                 }
                 else
                 {
+                    Speaker.clip = CancelSound;
+                    Speaker.PlayOneShot(Speaker.clip);
+
                     CanPause = true;
                 }
             }
@@ -69,6 +89,9 @@ public class Menu : MonoBehaviour
 
     public void setPanel(int p)
     {
+        Speaker.clip = ForwardSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         switch (p)
         {
             case 1:
@@ -147,17 +170,26 @@ public class Menu : MonoBehaviour
 
     public void ResumeGame()
     {
+        Speaker.clip = ForwardSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         PauseMenu.SetActive(false);
         Time.timeScale = 1;
     }
 
     public void ToggleSettings(bool visible)
     {
+        Speaker.clip = ForwardSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         SettingsMenu.SetActive(visible);
     }
 
     public void ToggleExit(bool visible)
     {
+        Speaker.clip = BackwardSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         ExitMenu.SetActive(visible);
     }
 
@@ -165,6 +197,9 @@ public class Menu : MonoBehaviour
     {
         try
         {
+            Speaker.clip = BackwardSound;
+            Speaker.PlayOneShot(Speaker.clip);
+
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
         catch
@@ -175,6 +210,9 @@ public class Menu : MonoBehaviour
 
     public void Restart()
     {
+        Speaker.clip = ApplySound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         int temp = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         UnityEngine.SceneManagement.SceneManager.LoadScene(temp);
         Time.timeScale = 1;
@@ -184,6 +222,9 @@ public class Menu : MonoBehaviour
     {
         try
         {
+            Speaker.clip = ApplySound;
+            Speaker.PlayOneShot(Speaker.clip);
+
             int temp = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
 
             if(temp >= 3)

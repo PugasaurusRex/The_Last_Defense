@@ -822,16 +822,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf868ba2958f6f49a303240036778e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gate: {fileID: 0}
+  passGate: 1
   target: {x: 0, y: 0, z: 0}
-  attackDistance: 1
+  attackDistance: 3
   attackCooldown: 1
   damage: 1
   droppedScrap: 10
-  AttackPlayer: 0
+  AttackPlayer: 1
   AttackTowers: 0
   ViewDistance: 10
   flying: 0
-  health: 100
+  health: 20
   armor: 0
   healthDisplay: {fileID: 2003977232169524242}
 --- !u!136 &1839365560295669049
@@ -858,7 +860,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

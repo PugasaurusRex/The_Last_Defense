@@ -119,15 +119,21 @@ public class ProjectileScript : MonoBehaviour
         {
             foreach (EnemyController i in InRange)
             {
-                i.StartCoroutine(i.Stun(stuntime));
-                i.TakeDamage(explosiveDamage);
+                if(i != null)
+                {
+                    i.StartCoroutine(i.Stun(stuntime));
+                    i.TakeDamage(explosiveDamage);
+                } 
             }
         }
         else
         {
             foreach (EnemyController i in InRange)
             {
-                i.TakeDamage(explosiveDamage);
+                if(i != null)
+                {
+                    i.TakeDamage(explosiveDamage);
+                }
             }
         }
         StartCoroutine(DestroySelf());
@@ -141,6 +147,12 @@ public class ProjectileScript : MonoBehaviour
 
     IEnumerator DestroySelf()
     {
+        Collider[] Temp = GetComponents<Collider>();
+        foreach(Collider i in Temp)
+        {
+            i.enabled = false;
+        }
+
         yield return new WaitForSeconds(2);
         Destroy(this.gameObject);
     }

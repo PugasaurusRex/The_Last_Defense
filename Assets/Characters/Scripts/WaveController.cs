@@ -46,9 +46,16 @@ public class WaveController : MonoBehaviour
 
     public TMP_Text waveNumber;
 
+    AudioSource Speaker;
+    public AudioClip NextWaveSound;
+    public AudioClip WaveBeginSound;
+    public AudioClip WaveEndSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        Speaker = GetComponent<AudioSource>();
+
         // Get level
         level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
 
@@ -64,7 +71,8 @@ public class WaveController : MonoBehaviour
 
         // Populate Waves
         // Weak, Weak Armored, Weak Flying, Medium Armor, Fast, Tank, Flying Tank, Boss
-        WaveList[0].Add(new Enemy(0, 10, .5f));
+        WaveList[0].Add(new Enemy(4, 10, .5f));
+        WaveList[1].Add(new Enemy(7, 1, .5f));
     }
 
     // Update is called once per frame
@@ -88,6 +96,12 @@ public class WaveController : MonoBehaviour
     {
         if (!inWave)
         {
+            Speaker.clip = NextWaveSound;
+            Speaker.PlayOneShot(Speaker.clip);
+
+            Speaker.clip = WaveBeginSound;
+            Speaker.PlayOneShot(Speaker.clip);
+
             wave++;
             string wavenum = "" + wave;
             waveNumber.text = wavenum;
@@ -168,6 +182,9 @@ public class WaveController : MonoBehaviour
 
     IEnumerator WaveComplete()
     {
+        Speaker.clip = WaveEndSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         WaveText.SetActive(true);
         yield return new WaitForSeconds(NotifTime);
         WaveText.SetActive(false);

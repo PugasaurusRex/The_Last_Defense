@@ -19,9 +19,16 @@ public class WeaponShop : MonoBehaviour
     int lastId = -1;
     int tempId;
 
+    AudioSource Speaker;
+    public AudioClip SelectWeaponSound;
+    public AudioClip BuyWeaponSound;
+    public AudioClip CancelSound;
+
     // Start is called before the first frame update
     void Start()
     {
+        Speaker = GetComponent<AudioSource>();
+
         Player = GameObject.Find("Player");
         PlayerInfo = Player.GetComponent<PlayerController>();
 
@@ -48,6 +55,9 @@ public class WeaponShop : MonoBehaviour
         }
         else if(id != lastId)
         {
+            Speaker.clip = SelectWeaponSound;
+            Speaker.PlayOneShot(Speaker.clip);
+
             if (PlayerInfo.ActiveWeapon != null)
             {
                 mags[lastId] = PlayerInfo.ActiveWeaponInfo.mag;
@@ -64,6 +74,9 @@ public class WeaponShop : MonoBehaviour
 
     public void PurchaseItem()
     {
+        Speaker.clip = BuyWeaponSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         purchasedItems.Add(items[tempId]);
         SetActiveItem(tempId);
         tempId = 0;
@@ -71,6 +84,9 @@ public class WeaponShop : MonoBehaviour
 
     public void ToggleConfirmation(bool visible)
     {
+        Speaker.clip = CancelSound;
+        Speaker.PlayOneShot(Speaker.clip);
+
         ConfirmMenu.SetActive(visible);
     }
 
