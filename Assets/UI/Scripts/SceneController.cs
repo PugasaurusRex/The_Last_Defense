@@ -40,5 +40,6 @@ public class SceneController : MonoBehaviour
     public void switchScenes(int scene)
     {
         SceneManager.LoadScene(scene);
+        Time.timeScale = 1;
     }
 }

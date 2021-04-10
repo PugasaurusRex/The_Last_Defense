@@ -98,6 +98,7 @@ public class Menu : MonoBehaviour
 
     public void Gameover()
     {
+        Time.timeScale = 0;
         UI.SetActive(false);
         ShopMenu.SetActive(false);
         GameOverScreen.SetActive(true);
@@ -105,6 +106,7 @@ public class Menu : MonoBehaviour
 
     public void Victory()
     {
+        Time.timeScale = 0;
         UI.SetActive(false);
         ShopMenu.SetActive(false);
         VictoryScreen.SetActive(true);
@@ -175,6 +177,7 @@ public class Menu : MonoBehaviour
     {
         int temp = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         UnityEngine.SceneManagement.SceneManager.LoadScene(temp);
+        Time.timeScale = 1;
     }
 
     public void NextLevel()
@@ -190,6 +193,7 @@ public class Menu : MonoBehaviour
             else
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(temp + 1);
+                Time.timeScale = 0;
             }
         }
         catch

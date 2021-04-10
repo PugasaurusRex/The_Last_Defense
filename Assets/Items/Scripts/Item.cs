@@ -25,7 +25,7 @@ public class Item : MonoBehaviour
     public Vector3 HandPosition = new Vector3(0.0047f, -0.0969f, 0.0354f);
     public Vector3 HandRotation = new Vector3(-90, -90, -90);
 
-    AudioSource Speaker;
+    public AudioSource Speaker;
     public AudioClip UseSound;
 
     // Start is called before the first frame update

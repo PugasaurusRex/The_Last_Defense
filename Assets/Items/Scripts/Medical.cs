@@ -30,7 +30,17 @@ public class Medical : Item
 
     override public IEnumerator Use()
     {
-        if(tower)
+        try
+        {
+            Speaker.clip = UseSound;
+            Speaker.PlayOneShot(Speaker.clip);
+        }
+        catch
+        {
+            Debug.Log("No Audio for using item");
+        }
+
+        if (tower)
         {
             RepairTowers();
         }

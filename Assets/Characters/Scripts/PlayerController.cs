@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public SettingsController Controls;
     public GameObject GunHand;
 
+    public bool placingTower = false;
+
     // Gamestate Variables
     public int health = 100;
     public int armor = 0;
@@ -52,7 +54,6 @@ public class PlayerController : MonoBehaviour
         Controls = ControlMenu.GetComponent<SettingsController>();
 
         ActiveWeaponInfo = ActiveWeapon.GetComponent<Item>();
-
         ActiveWeaponInfo.mag = ActiveWeaponInfo.magSize;
     }
 
@@ -108,11 +109,15 @@ public class PlayerController : MonoBehaviour
             }
 
             // Use Item
-            if (Input.GetKey(Controls.keys["Shoot"]) || (Input.GetButton("Fire1") && !MouseUsed))
+            if (Input.GetKeyDown(Controls.keys["Shoot"]) || (Input.GetButtonDown("Fire1") && !MouseUsed && !placingTower))
             {
                 ActiveWeaponInfo.usingItem = true;
             }
-            else
+            else if(Input.GetButtonDown("Fire1") && placingTower)
+            {
+                placingTower = false;
+            }
+            else if(Input.GetKeyUp(Controls.keys["Shoot"]) || (Input.GetButtonUp("Fire1")))
             {
                 Anim.SetBool("Shoot", false);
                 ActiveWeaponInfo.usingItem = false;

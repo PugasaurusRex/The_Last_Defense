@@ -16,6 +16,7 @@ public class ProjectileScript : MonoBehaviour
     public bool grenade = false;
     public bool fused = false;
     public bool stun = false;
+    bool used = false;
 
     public Vector3 target;
     Vector3 spawn;
@@ -24,6 +25,8 @@ public class ProjectileScript : MonoBehaviour
 
     AudioSource Speaker;
     public AudioClip ExplodeSound;
+
+    public GameObject ExplodeParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +46,9 @@ public class ProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (grenade && ((Vector3.Distance(this.transform.position, target) < .5f || Vector3.Distance(this.transform.position, spawn) > range)))
+        if (!used && grenade && ((Vector3.Distance(this.transform.position, target) < .5f || Vector3.Distance(this.transform.position, spawn) > range)))
         {
+            used = true;
             Rig.velocity = Vector3.zero;
             if(!fused)
             {
@@ -83,11 +87,11 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Enemy")
+        if (!used && collision.collider.tag == "Enemy")
         {
             collision.collider.GetComponent<EnemyController>().TakeDamage(damage);
         }
-        if(collision.collider.tag != "Player" && collision.collider.tag != "Tower" && collision.collider.tag != "Floor")
+        if(!used && collision.collider.tag != "Player" && collision.collider.tag != "Floor")
         {
             Explode();
             Rig.velocity = Vector3.zero;
@@ -96,8 +100,20 @@ public class ProjectileScript : MonoBehaviour
 
     public void Explode()
     {
-        Speaker.clip = ExplodeSound;
-        Speaker.PlayOneShot(Speaker.clip);
+        used = true;
+
+        try
+        {
+            Speaker.clip = ExplodeSound;
+            Speaker.PlayOneShot(Speaker.clip);
+
+            ExplodeParticles.SetActive(true);
+            ExplodeParticles.GetComponent<ParticleSystem>().Play();
+        }
+        catch
+        {
+            Debug.Log("No Audio or Particle for explode.");
+        }
 
         if (stun)
         {
@@ -114,12 +130,18 @@ public class ProjectileScript : MonoBehaviour
                 i.TakeDamage(explosiveDamage);
             }
         }
-        Destroy(this.gameObject);
+        StartCoroutine(DestroySelf());
     }
 
     IEnumerator Fuse()
     {
         yield return new WaitForSeconds(fusetime);
         Explode();
+    }
+
+    IEnumerator DestroySelf()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(this.gameObject);
     }
 }

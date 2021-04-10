@@ -174,6 +174,7 @@ public class TowerShop : MonoBehaviour
 
         // Disable Pausing
         MenuSettings.CanPause = false;
+        PlayerInfo.placingTower = true;
 
         // Spawn corresponding tower
         switch (TowerId)

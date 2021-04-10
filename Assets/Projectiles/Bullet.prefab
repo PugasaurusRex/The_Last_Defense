@@ -104,7 +104,8 @@ MonoBehaviour:
   fused: 0
   stun: 0
   target: {x: 0, y: 0, z: 0}
-  ExplodeSound: {fileID: 0}
+  ExplodeSound: {fileID: 8300000, guid: 5517e0e2a3166d24e81982d4686f5356, type: 3}
+  ExplodeParticles: {fileID: 0}
 --- !u!54 &-2176473306554131723
 Rigidbody:
   m_ObjectHideFlags: 0

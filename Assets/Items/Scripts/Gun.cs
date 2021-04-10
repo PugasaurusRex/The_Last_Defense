@@ -25,6 +25,16 @@ public class Gun : Item
 
     override public IEnumerator Use()
     {
+        try
+        {
+            Speaker.clip = UseSound;
+            Speaker.PlayOneShot(Speaker.clip);
+        }
+        catch
+        {
+            Debug.Log("No Audio for using item");
+        }
+
         StartCoroutine(Flash());
 
         for(int i = 1; i <= numBullets; i++)

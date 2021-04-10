@@ -24,6 +24,16 @@ public class Grenade : Item
 
     override public IEnumerator Use()
     {
+        try
+        {
+            Speaker.clip = UseSound;
+            Speaker.PlayOneShot(Speaker.clip);
+        }
+        catch
+        {
+            Debug.Log("No Audio for using item");
+        }
+
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
             target = new Vector3(hit.point.x, 1, hit.point.z);

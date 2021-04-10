@@ -183,6 +183,8 @@ MonoBehaviour:
   PlayerInfo: {fileID: 0}
   HandPosition: {x: 0.0047, y: -0.0095, z: 0.0354}
   HandRotation: {x: -90, y: -90, z: -90}
+  Speaker: {fileID: 0}
+  UseSound: {fileID: 8300000, guid: eeec711448f7ef546b7f8c4362886f71, type: 3}
   GrenadeObject: {fileID: 1698056052845220, guid: ea322a9ee8a44c347a09065f73106bc3,
     type: 3}
   explosiveDamage: 10
@@ -207,7 +209,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 70
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -242,7 +244,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

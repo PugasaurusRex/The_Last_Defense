@@ -188,6 +188,8 @@ MonoBehaviour:
   PlayerInfo: {fileID: 0}
   HandPosition: {x: 0.0047, y: -0.0969, z: 0.0354}
   HandRotation: {x: -90, y: -90, z: -90}
+  Speaker: {fileID: 0}
+  UseSound: {fileID: 8300000, guid: bd83c36222ec1c0448601661f1573860, type: 3}
   MuzzleFlash: {fileID: 617173923116591369}
   bulletSpawn: {fileID: 4903940354107902375}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
@@ -214,7 +216,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 65
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -249,7 +251,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
