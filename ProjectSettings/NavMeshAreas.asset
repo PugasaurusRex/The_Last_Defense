@@ -15,7 +15,7 @@ NavMeshProjectSettings:
     cost: 5
   - name: Priority
     cost: 1
-  - name: 
+  - name: Start
     cost: 1
   - name: 
     cost: 1
