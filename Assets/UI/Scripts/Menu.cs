@@ -144,12 +144,12 @@ public class Menu : MonoBehaviour
                 Destroy(ShopMenu.GetComponent<TowerShop>().TempTower);
                 ShopMenu.GetComponent<TowerShop>().TempTower = null;
             }
-            ShopMenu.SetActive(false);
+            ShopMenu.transform.position = ShopMenu.transform.position + new Vector3(0, -5000, 0);
             ShopToggle = false;
         }
         else
         {
-            ShopMenu.SetActive(true);
+            ShopMenu.transform.position = ShopMenu.transform.position + new Vector3(0, 5000, 0);
             ShopToggle = true;
         }
     }
@@ -158,12 +158,12 @@ public class Menu : MonoBehaviour
     {
         if (InvToggle)
         {
-            Inventory.SetActive(false);
+            Inventory.transform.position = Inventory.transform.position + new Vector3(0, -5000, 0);
             InvToggle = false;
         }
         else
         {
-            Inventory.SetActive(true);
+            Inventory.transform.position = Inventory.transform.position + new Vector3(0, 5000, 0);
             InvToggle = true;
         }
     }
