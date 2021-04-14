@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 0
   reloadTime: 2
-  rateOfFire: 0.3
+  rateOfFire: 0.2
   damage: 3
   rifle: 0
   usingItem: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 3250241043533885959}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
   numBullets: 1
-  accuracy: 3
+  accuracy: 5
 --- !u!82 &3736015292376136782
 AudioSource:
   m_ObjectHideFlags: 0

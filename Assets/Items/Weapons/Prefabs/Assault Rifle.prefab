@@ -99,14 +99,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  reloadTime: 3
-  rateOfFire: 0.15
-  damage: 3
+  reloadTime: 3.5
+  rateOfFire: 0.25
+  damage: 4
   rifle: 1
   usingItem: 0
   canUse: 1
   reloading: 0
-  magSize: 30
+  magSize: 35
   mag: 0
   Player: {fileID: 0}
   PlayerInfo: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 3016742200716599128}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
   numBullets: 1
-  accuracy: 1
+  accuracy: 4
 --- !u!82 &7260412624665627616
 AudioSource:
   m_ObjectHideFlags: 0

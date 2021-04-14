@@ -71,8 +71,14 @@ public class WaveController : MonoBehaviour
 
         // Populate Waves
         // Weak, Weak Armored, Weak Flying, Medium Armor, Fast, Tank, Flying Tank, Boss
-        WaveList[0].Add(new Enemy(4, 10, .5f));
-        WaveList[1].Add(new Enemy(7, 1, .5f));
+        WaveList[0].Add(new Enemy(0, 10, .5f));
+        WaveList[1].Add(new Enemy(1, 10, .5f));
+        WaveList[2].Add(new Enemy(2, 10, .5f));
+        WaveList[3].Add(new Enemy(3, 10, .5f));
+        WaveList[4].Add(new Enemy(4, 10, .5f));
+        WaveList[5].Add(new Enemy(5, 10, .5f));
+        WaveList[6].Add(new Enemy(6, 10, .5f));
+        WaveList[7].Add(new Enemy(7, 1, .5f));
     }
 
     // Update is called once per frame

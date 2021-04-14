@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 23559475949960412}
   - component: {fileID: -6242603963747217745}
   - component: {fileID: 2822992757680871448}
-  - component: {fileID: -3103420720029201742}
   - component: {fileID: 8373614620880669422}
   m_Layer: 0
   m_Name: FlashP
@@ -124,19 +123,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 36
   m_CollisionDetection: 0
---- !u!135 &-3103420720029201742
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516097666562846}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5
-  m_Center: {x: 0, y: -0.0069666784, z: 0.0047538737}
 --- !u!82 &8373614620880669422
 AudioSource:
   m_ObjectHideFlags: 0

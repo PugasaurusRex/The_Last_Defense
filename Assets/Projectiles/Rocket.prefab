@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -1022363959422415516}
   - component: {fileID: -4451420542309460230}
   - component: {fileID: -4866859229099361625}
-  - component: {fileID: 6231857568331525729}
   - component: {fileID: 9128580646197454900}
   m_Layer: 0
   m_Name: Rocket
@@ -97,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 16
   damage: 5
-  explosiveDamage: 100
+  explosiveDamage: 10
   fusetime: 0
   stuntime: 3
   range: 0
@@ -132,24 +131,11 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2769693306594560029}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.09
   m_Height: 0.89
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: -0.29034472}
---- !u!135 &6231857568331525729
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769693306594560029}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 4
   m_Center: {x: 0, y: 0, z: -0.29034472}
 --- !u!82 &9128580646197454900
 AudioSource:

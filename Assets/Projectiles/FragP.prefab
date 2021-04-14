@@ -90,7 +90,6 @@ GameObject:
   - component: {fileID: 23614443034357060}
   - component: {fileID: 3161731287167378579}
   - component: {fileID: 3395014025804904753}
-  - component: {fileID: -4536167542698765001}
   - component: {fileID: -7892762200905467662}
   m_Layer: 0
   m_Name: FragP
@@ -174,10 +173,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   damage: 1
-  explosiveDamage: 100
+  explosiveDamage: 15
   fusetime: 5
   stuntime: 3
-  range: 10
+  range: 15
   explosive: 1
   grenade: 1
   fused: 1
@@ -201,19 +200,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 36
   m_CollisionDetection: 0
---- !u!135 &-4536167542698765001
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698056052845220}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5
-  m_Center: {x: 0, y: 0.027264815, z: 0}
 --- !u!82 &-7892762200905467662
 AudioSource:
   m_ObjectHideFlags: 0

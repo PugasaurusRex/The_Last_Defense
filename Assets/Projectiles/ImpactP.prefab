@@ -90,9 +90,8 @@ GameObject:
   - component: {fileID: 23614443034357060}
   - component: {fileID: -4851829415632259884}
   - component: {fileID: 9002712977890889359}
-  - component: {fileID: 439226019122244423}
-  - component: {fileID: 971992844563900035}
   - component: {fileID: -6516502158287002783}
+  - component: {fileID: 6810645563755239186}
   m_Layer: 0
   m_Name: ImpactP
   m_TagString: Player
@@ -178,7 +177,7 @@ MonoBehaviour:
   explosiveDamage: 10
   fusetime: 0
   stuntime: 3
-  range: 10
+  range: 8
   explosive: 1
   grenade: 1
   fused: 0
@@ -202,32 +201,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 36
   m_CollisionDetection: 0
---- !u!135 &439226019122244423
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698056052845220}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.07838227
-  m_Center: {x: 0, y: 0.027264815, z: 0}
---- !u!135 &971992844563900035
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698056052845220}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5
-  m_Center: {x: 0, y: 0.027264815, z: 0}
 --- !u!82 &-6516502158287002783
 AudioSource:
   m_ObjectHideFlags: 0
@@ -324,6 +297,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &6810645563755239186
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698056052845220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.07838227
+  m_Center: {x: 0, y: 0.027264815, z: 0}
 --- !u!1 &1793803600195958
 GameObject:
   m_ObjectHideFlags: 0

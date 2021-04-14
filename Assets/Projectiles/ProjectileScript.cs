@@ -11,6 +11,7 @@ public class ProjectileScript : MonoBehaviour
     public float fusetime = 0;
     public float stuntime = 3;
     public float range;
+    public float explodeRadius = 5;
 
     public bool explosive = false;
     public bool grenade = false;
@@ -32,6 +33,8 @@ public class ProjectileScript : MonoBehaviour
     void Start()
     {
         Speaker = GetComponent<AudioSource>();
+
+
 
         Rig = this.GetComponent<Rigidbody>();
         Rig.velocity = this.transform.forward * speed;
@@ -68,33 +71,20 @@ public class ProjectileScript : MonoBehaviour
             }
             else
             {
-                InRange.Add(other.GetComponent<EnemyController>());
+                if (!used && other.gameObject.tag == "Enemy")
+                {
+                    other.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+                }
+                if (!used && other.gameObject.tag != "Player" && other.gameObject.tag != "Floor" && other.gameObject.tag != "Tower")
+                {
+                    Explode();
+                    Rig.velocity = Vector3.zero;
+                }
             }
         }
         if (!explosive && other.gameObject.tag != "Player" && other.gameObject.tag != "Tower" && other.gameObject.tag != "Floor")
         {
             Destroy(this.gameObject);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(explosive && other.gameObject.tag == "Enemy" && InRange.Contains(other.GetComponent<EnemyController>()))
-        {
-            InRange.Remove(other.GetComponent<EnemyController>());
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!used && collision.collider.tag == "Enemy")
-        {
-            collision.collider.GetComponent<EnemyController>().TakeDamage(damage);
-        }
-        if(!used && collision.collider.tag != "Player" && collision.collider.tag != "Floor")
-        {
-            Explode();
-            Rig.velocity = Vector3.zero;
         }
     }
 
@@ -115,27 +105,29 @@ public class ProjectileScript : MonoBehaviour
             Debug.Log("No Audio or Particle for explode.");
         }
 
-        if (stun)
+        try
         {
-            foreach (EnemyController i in InRange)
+            foreach(EnemyController i in FindObjectsOfType<EnemyController>())
             {
-                if(i != null)
+                if(Vector3.Distance(i.gameObject.transform.position, this.transform.position) < explodeRadius)
                 {
-                    i.StartCoroutine(i.Stun(stuntime));
-                    i.TakeDamage(explosiveDamage);
-                } 
-            }
-        }
-        else
-        {
-            foreach (EnemyController i in InRange)
-            {
-                if(i != null)
-                {
-                    i.TakeDamage(explosiveDamage);
+                    if (i != null)
+                    {
+                        i.TakeDamage(explosiveDamage);
+
+                        if(stun)
+                        {
+                            i.StartCoroutine(i.Stun(stuntime));
+                        }
+                    }
                 }
             }
         }
+        catch
+        {
+            Debug.Log("Failed to find enemies.");
+        }
+
         StartCoroutine(DestroySelf());
     }
 
