@@ -12,6 +12,7 @@ public class WeaponShop : MonoBehaviour
     public GameObject Player;
     PlayerController PlayerInfo;
 
+    public GameObject ErrorMenu;
     public GameObject ConfirmMenu;
     public TMP_Text CostText;
     public TMP_Text ItemName;
@@ -77,9 +78,18 @@ public class WeaponShop : MonoBehaviour
         Speaker.clip = BuyWeaponSound;
         Speaker.PlayOneShot(Speaker.clip);
 
-        purchasedItems.Add(items[tempId]);
-        SetActiveItem(tempId);
-        tempId = 0;
+        if(PlayerInfo.scrap >= items[tempId].GetComponent<Item>().cost)
+        {
+            PlayerInfo.scrap -= items[tempId].GetComponent<Item>().cost;
+            purchasedItems.Add(items[tempId]);
+            SetActiveItem(tempId);
+            tempId = 0;
+        }
+        else
+        {
+            ErrorMenu.GetComponentInChildren<TMP_Text>().text = "Not enough scrap.";
+            StartCoroutine(ErrorMessage());
+        }
     }
 
     public void ToggleConfirmation(bool visible)
@@ -109,5 +119,12 @@ public class WeaponShop : MonoBehaviour
                 SetActiveItem(0);
             }
         }
+    }
+
+    IEnumerator ErrorMessage()
+    {
+        ErrorMenu.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        ErrorMenu.SetActive(false);
     }
 }

@@ -49,7 +49,7 @@ public class ProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!used && grenade && ((Vector3.Distance(this.transform.position, target) < .5f || Vector3.Distance(this.transform.position, spawn) > range)))
+        if (!used && grenade && ((Vector3.Distance(this.transform.position, target) < 1f || Vector3.Distance(this.transform.position, spawn) > range)))
         {
             used = true;
             Rig.velocity = Vector3.zero;
@@ -99,6 +99,8 @@ public class ProjectileScript : MonoBehaviour
 
             ExplodeParticles.SetActive(true);
             ExplodeParticles.GetComponent<ParticleSystem>().Play();
+
+            GetComponent<MeshRenderer>().enabled = false;
         }
         catch
         {

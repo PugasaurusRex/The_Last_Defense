@@ -1332,6 +1332,7 @@ MonoBehaviour:
   purchasedItems:
   - {fileID: 1694449805434718, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}
   Player: {fileID: 0}
+  ErrorMenu: {fileID: 1059773539}
   ConfirmMenu: {fileID: 1647875940}
   CostText: {fileID: 696556984}
   ItemName: {fileID: 1669215513}
