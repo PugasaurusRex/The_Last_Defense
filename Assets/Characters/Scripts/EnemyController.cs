@@ -163,25 +163,33 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Attack()
     {
+        StartCoroutine(AttackAnimation());
         yield return new WaitForSeconds(attackCooldown);
+        attacking = false;
+    }
+
+    IEnumerator AttackAnimation()
+    {
+        yield return new WaitForSeconds(Anim.GetCurrentAnimatorStateInfo(0).length);
 
         // Deal Damage
-        if (AttackPlayer && TargetObject == Player)
+        if (TargetObject != null)
         {
-            PlayerInfo.TakeDamage(damage);
+            if (AttackPlayer && TargetObject == Player)
+            {
+                PlayerInfo.TakeDamage(damage);
+            }
+            else if (TargetObject == Goal)
+            {
+                GoalScript temp = Goal.GetComponent<GoalScript>();
+                temp.health -= damage;
+            }
+            else if (AttackTowers)
+            {
+                TargetObject.GetComponent<TowerController>().TakeDamage(damage);
+            }
         }
-        else if (TargetObject == Goal)
-        {
-            GoalScript temp = Goal.GetComponent<GoalScript>();
-            temp.health -= damage;
-        }
-        else
-        {
-            TargetObject.GetComponent<TowerController>().TakeDamage(damage);
-        }
-
         Anim.SetBool("Attack", false);
-        attacking = false;
     }
 
     public void TakeDamage(int incomingDamage)
@@ -204,7 +212,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(Anim.GetCurrentAnimatorStateInfo(0).length);
         Destroy(this.gameObject);
         Player.GetComponent<PlayerController>().scrap += droppedScrap;
     }

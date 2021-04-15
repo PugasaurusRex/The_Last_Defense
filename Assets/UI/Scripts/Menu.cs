@@ -212,10 +212,9 @@ public class Menu : MonoBehaviour
     {
         Speaker.clip = ApplySound;
         Speaker.PlayOneShot(Speaker.clip);
-
+        Time.timeScale = 1;
         int temp = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         UnityEngine.SceneManagement.SceneManager.LoadScene(temp);
-        Time.timeScale = 1;
     }
 
     public void NextLevel()

@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
             // If out of health initiate gameover sequence
             if (health <= 0)
             {
-                Anim.SetBool("Die", true);
+                Anim.SetBool("Dead", true);
                 GameObject.Find("Canvas").GetComponent<Menu>().Gameover();
             }
         }

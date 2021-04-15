@@ -521,7 +521,7 @@ Transform:
   m_GameObject: {fileID: 8595806118181095409}
   m_LocalRotation: {x: 0, y: -0.9943876, z: 0, w: -0.10579848}
   m_LocalPosition: {x: 4.7294855, y: 0.5, z: 0.9376612}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8595806118181584565}
   - {fileID: 8595806118181511325}
@@ -560,16 +560,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf868ba2958f6f49a303240036778e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gate: {fileID: 0}
+  passGate: 1
   target: {x: 0, y: 0, z: 0}
-  attackDistance: 1
-  attackCooldown: 1
-  damage: 1
-  droppedScrap: 10
+  attackDistance: 4
+  attackCooldown: 4
+  damage: 40
+  droppedScrap: 25
   AttackPlayer: 0
-  AttackTowers: 0
-  ViewDistance: 10
+  AttackTowers: 1
+  ViewDistance: 15
   flying: 0
-  health: 100
+  health: 50
   armor: 0
   healthDisplay: {fileID: 4744874270090587929}
 --- !u!136 &6784065835286668721
@@ -582,10 +584,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 0.7
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0.2}
 --- !u!195 &8647040288617957104
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -596,7 +598,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -3274,6 +3276,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.3333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 718685608878966935, guid: 4fe4efe71f2720347860aa60754d7a62,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.010999978
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe4efe71f2720347860aa60754d7a62, type: 3}

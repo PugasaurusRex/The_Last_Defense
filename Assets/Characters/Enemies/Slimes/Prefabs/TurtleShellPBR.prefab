@@ -838,11 +838,11 @@ MonoBehaviour:
   Gate: {fileID: 0}
   passGate: 1
   target: {x: 0, y: 0, z: 0}
-  attackDistance: 3
+  attackDistance: 2
   attackCooldown: 1
-  damage: 3
+  damage: 1
   droppedScrap: 10
-  AttackPlayer: 0
+  AttackPlayer: 1
   AttackTowers: 0
   ViewDistance: 10
   flying: 0
