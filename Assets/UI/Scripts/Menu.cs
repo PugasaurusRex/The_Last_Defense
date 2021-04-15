@@ -201,6 +201,7 @@ public class Menu : MonoBehaviour
             Speaker.clip = BackwardSound;
             Speaker.PlayOneShot(Speaker.clip);
 
+            Time.timeScale = 1;
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
         catch
@@ -226,15 +227,15 @@ public class Menu : MonoBehaviour
             Speaker.PlayOneShot(Speaker.clip);
 
             int temp = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            Time.timeScale = 1;
 
-            if(temp >= 3)
+            if (temp >= 3)
             {
                 ExitToMenu();
             }
             else
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(temp + 1);
-                Time.timeScale = 0;
             }
         }
         catch

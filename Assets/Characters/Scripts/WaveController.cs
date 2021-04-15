@@ -57,7 +57,7 @@ public class WaveController : MonoBehaviour
         Speaker = GetComponent<AudioSource>();
 
         // Get level
-        level = 1;//UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
 
         // Get number of spawns
         Spawns = GameObject.FindGameObjectsWithTag("Spawner");
