@@ -604,12 +604,13 @@ MonoBehaviour:
   InRange: []
   health: 100
   maxHealth: 0
+  cost: 300
   shootFlying: 0
   shootGround: 1
-  damage: 10
+  damage: 2
   range: 10
-  fireRate: 1
-  accuracy: 0.8
+  fireRate: 0.1
+  accuracy: 0.5
   rotator: {fileID: 1101138171766222}
   Projectile: {fileID: 0}
   MuzzleFlash: {fileID: 6591098045097828978}
@@ -618,9 +619,7 @@ MonoBehaviour:
   segments: 50
   line: {fileID: 0}
   healthDisplay: {fileID: 4612116833627011626}
-  DieSound: {fileID: 0}
-  ShootSound: {fileID: 0}
-  TakeDamageSound: {fileID: 0}
+  TakeDamageSound: {fileID: 8300000, guid: 3d23bbea5a8dcb84db2ab3b80a109525, type: 3}
 --- !u!120 &6031305665550550103
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -801,7 +800,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

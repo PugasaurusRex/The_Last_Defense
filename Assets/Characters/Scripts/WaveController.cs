@@ -71,7 +71,56 @@ public class WaveController : MonoBehaviour
 
         // Populate Waves
         // Weak, Weak Armored, Weak Flying, Medium Armor, Fast, Tank, Flying Tank, Boss
-        WaveList[0].Add(new Enemy(2, 1, .5f));
+        WaveList[0].Add(new Enemy(0, 50, .5f));
+
+        WaveList[1].Add(new Enemy(1, 50, .5f));
+
+        WaveList[2].Add(new Enemy(0, 20, .5f));
+        WaveList[2].Add(new Enemy(1, 20, .5f));
+        WaveList[2].Add(new Enemy(0, 20, .5f));
+        WaveList[2].Add(new Enemy(1, 20, .5f));
+
+        WaveList[3].Add(new Enemy(2, 40, .5f));
+
+        WaveList[4].Add(new Enemy(1, 10, .5f));
+        WaveList[4].Add(new Enemy(2, 20, .5f));
+        WaveList[4].Add(new Enemy(1, 10, .5f));
+        WaveList[4].Add(new Enemy(2, 20, .5f));
+
+        WaveList[5].Add(new Enemy(1, 10, .5f));
+        WaveList[5].Add(new Enemy(2, 10, .5f));
+        WaveList[5].Add(new Enemy(1, 10, .5f));
+        WaveList[5].Add(new Enemy(2, 10, .5f));
+        WaveList[5].Add(new Enemy(1, 20, .5f));
+        WaveList[5].Add(new Enemy(2, 20, .5f));
+        WaveList[5].Add(new Enemy(1, 20, .5f));
+        WaveList[5].Add(new Enemy(2, 20, .5f));
+
+        WaveList[6].Add(new Enemy(3, 20, .5f));
+        WaveList[6].Add(new Enemy(2, 20, .5f));
+
+        WaveList[7].Add(new Enemy(3, 50, .5f));
+
+        WaveList[8].Add(new Enemy(3, 10, .5f));
+        WaveList[8].Add(new Enemy(4, 10, .5f));
+
+        WaveList[9].Add(new Enemy(4, 50, .3f));
+
+        WaveList[10].Add(new Enemy(5, 10, 1f));
+        WaveList[10].Add(new Enemy(4, 30, .3f));
+
+        WaveList[11].Add(new Enemy(5, 30, 1f));
+
+        WaveList[12].Add(new Enemy(6, 30, .5f));
+
+        WaveList[13].Add(new Enemy(6, 10, .5f));
+        WaveList[13].Add(new Enemy(4, 30, .3f));
+        WaveList[13].Add(new Enemy(5, 10, 1f));
+        WaveList[13].Add(new Enemy(2, 10, 1f));
+        WaveList[13].Add(new Enemy(5, 10, 1f));
+        WaveList[13].Add(new Enemy(4, 30, .3f));
+
+        WaveList[14].Add(new Enemy(7, 1, 1f));
     }
 
     // Update is called once per frame

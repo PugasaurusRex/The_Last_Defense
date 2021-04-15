@@ -24,14 +24,6 @@ public class TowerShop : MonoBehaviour
 
     public bool lineVisible = false;
 
-    // Tower Prices
-    public int RiflePrice = 100;
-    public int SniperPrice = 100;
-    public int MachinegunPrice = 100;
-    public int MissilePrice = 100;
-    public int AirDefensePrice = 100;
-    public int MortarPrice = 100;
-
     // Temp Towers
     public GameObject TempTower;
     int TempTowerCost = 0;
@@ -190,32 +182,32 @@ public class TowerShop : MonoBehaviour
         {
             case 1:
                 TempTower = Instantiate(ShopRifle);
-                TempTowerCost = RiflePrice;
+                TempTowerCost = RifleInfo.cost;
                 break;
 
             case 2:
                 TempTower = Instantiate(ShopSniper);
-                TempTowerCost = SniperPrice;
+                TempTowerCost = SniperInfo.cost;
                 break;
 
             case 3:
                 TempTower = Instantiate(ShopMachinegun);
-                TempTowerCost = MachinegunPrice;
+                TempTowerCost = MachinegunInfo.cost;
                 break;
 
             case 4:
                 TempTower = Instantiate(ShopMissile);
-                TempTowerCost = MissilePrice;
+                TempTowerCost = MissileInfo.cost;
                 break;
 
             case 5:
                 TempTower = Instantiate(ShopAirDefense);
-                TempTowerCost = AirDefensePrice;
+                TempTowerCost = AirDefenseInfo.cost;
                 break;
 
             case 6:
                 TempTower = Instantiate(ShopMortar);
-                TempTowerCost = MortarPrice;
+                TempTowerCost = MortarInfo.cost;
                 break;
 
             default:
@@ -298,7 +290,7 @@ public class TowerShop : MonoBehaviour
         switch (id)
         {
             case 1:
-                CostText.text = "" + RiflePrice;
+                CostText.text = "" + RifleInfo.cost;
                 DamageText.text = "" + RifleInfo.damage;
                 RangeText.text = "" + RifleInfo.range;
                 AccuracyText.text = "" + RifleInfo.accuracy;
@@ -306,7 +298,7 @@ public class TowerShop : MonoBehaviour
                 break;
 
             case 2:
-                CostText.text = "" + SniperPrice;
+                CostText.text = "" + SniperInfo.cost;
                 DamageText.text = "" + SniperInfo.damage;
                 RangeText.text = "" + SniperInfo.range;
                 AccuracyText.text = "" + SniperInfo.accuracy;
@@ -314,7 +306,7 @@ public class TowerShop : MonoBehaviour
                 break;
 
             case 3:
-                CostText.text = "" + MachinegunPrice;
+                CostText.text = "" + MachinegunInfo.cost;
                 DamageText.text = "" + MachinegunInfo.damage;
                 RangeText.text = "" + MachinegunInfo.range;
                 AccuracyText.text = "" + MachinegunInfo.accuracy;
@@ -322,7 +314,7 @@ public class TowerShop : MonoBehaviour
                 break;
 
             case 4:
-                CostText.text = "" + MissilePrice;
+                CostText.text = "" + MissileInfo.cost;
                 DamageText.text = "" + MissileInfo.damage;
                 RangeText.text = "" + MissileInfo.range;
                 AccuracyText.text = "" + MissileInfo.accuracy;
@@ -330,7 +322,7 @@ public class TowerShop : MonoBehaviour
                 break;
 
             case 5:
-                CostText.text = "" + AirDefensePrice;
+                CostText.text = "" + AirDefenseInfo.cost;
                 DamageText.text = "" + AirDefenseInfo.damage;
                 RangeText.text = "" + AirDefenseInfo.range;
                 AccuracyText.text = "" + AirDefenseInfo.accuracy;
@@ -338,7 +330,7 @@ public class TowerShop : MonoBehaviour
                 break;
 
             case 6:
-                CostText.text = "" + MortarPrice;
+                CostText.text = "" + MortarInfo.cost;
                 DamageText.text = "" + MortarInfo.damage;
                 RangeText.text = "" + MortarInfo.range;
                 AccuracyText.text = "" + MortarInfo.accuracy;

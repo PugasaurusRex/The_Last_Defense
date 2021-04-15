@@ -5218,6 +5218,7 @@ MonoBehaviour:
   InRange: []
   health: 100
   maxHealth: 0
+  cost: 300
   shootFlying: 1
   shootGround: 0
   damage: 10
@@ -5232,6 +5233,7 @@ MonoBehaviour:
   segments: 50
   line: {fileID: 0}
   healthDisplay: {fileID: 4944299925331970154}
+  TakeDamageSound: {fileID: 8300000, guid: 3d23bbea5a8dcb84db2ab3b80a109525, type: 3}
 --- !u!120 &4881657956389880950
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5412,7 +5414,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

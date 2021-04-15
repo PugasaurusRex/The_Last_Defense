@@ -105,7 +105,7 @@ MonoBehaviour:
   attackDistance: 3
   attackCooldown: 3
   damage: 30
-  droppedScrap: 25
+  droppedScrap: 10
   AttackPlayer: 0
   AttackTowers: 1
   ViewDistance: 15

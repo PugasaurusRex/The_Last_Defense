@@ -8,13 +8,17 @@ public class GoalScript : MonoBehaviour
     public int health = 100;
     public GameObject MenuUI;
 
-    int maxHealth;
+    public int maxHealth;
     public Image healthDisplay;
+
+    AudioSource Speaker;
+    public AudioClip TakeDamageSound;
 
     // Start is called before the first frame update
     void Start()
     {
         maxHealth = health;
+        Speaker = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,5 +34,20 @@ public class GoalScript : MonoBehaviour
             healthDisplay.fillAmount = (float)health / maxHealth;
             healthDisplay.transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
         }
+    }
+
+    public void TakeDamage(int incomingDamage)
+    {
+        try
+        {
+            Speaker.clip = TakeDamageSound;
+            Speaker.PlayOneShot(Speaker.clip);
+        }
+        catch
+        {
+            Debug.Log("Failed to play damage audio");
+        }
+
+        health -= incomingDamage;
     }
 }

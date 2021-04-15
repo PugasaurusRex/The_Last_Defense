@@ -76,7 +76,7 @@ MonoBehaviour:
   placingTower: 0
   health: 100
   armor: 0
-  scrap: 2500
+  scrap: 250
   maxSpeed: 9
   accel: 0.8
   stimSpeed: 0

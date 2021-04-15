@@ -16,6 +16,7 @@ public class TowerController : MonoBehaviour
     public int maxHealth;
 
     // Tower Variables
+    public int cost = 0;
     public bool shootFlying = false;
     public bool shootGround = true;
 
@@ -41,8 +42,6 @@ public class TowerController : MonoBehaviour
 
     // Audio
     AudioSource Speaker;
-    public AudioClip DieSound;
-    public AudioClip ShootSound;
     public AudioClip TakeDamageSound;
 
     // Start is called before the first frame update
@@ -158,6 +157,16 @@ public class TowerController : MonoBehaviour
 
     public void TakeDamage(int incomingDamage)
     {
+        try
+        {
+            Speaker.clip = TakeDamageSound;
+            Speaker.PlayOneShot(Speaker.clip);
+        }
+        catch
+        {
+            Debug.Log("Failed to play damage audio");
+        }
+
         health -= incomingDamage;
     }
 

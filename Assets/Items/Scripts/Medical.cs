@@ -11,6 +11,7 @@ public class Medical : Item
     public bool tower = false;
 
     TowerShop TowerShopRef;
+    GoalScript Goal;
     public float distance = 0;
     public int healAmount = 0;
     public float stimLength = 0;
@@ -20,6 +21,7 @@ public class Medical : Item
     {
         base.Start();
         TowerShopRef = GameObject.Find("TowerShopUI").GetComponent<TowerShop>();
+        Goal = GameObject.Find("Goal").GetComponent<GoalScript>();
     }
 
     // Update is called once per frame
@@ -80,6 +82,17 @@ public class Medical : Item
                         i.GetComponent<TowerController>().health = i.GetComponent<TowerController>().maxHealth;
                     }
                 }
+            }
+        }
+        if(Vector3.Distance(this.transform.position, Goal.gameObject.transform.position) < distance)
+        {
+            if (Goal.health + healAmount <= Goal.maxHealth)
+            {
+                Goal.health += healAmount;
+            }
+            else
+            {
+                Goal.health = Goal.maxHealth;
             }
         }
     }

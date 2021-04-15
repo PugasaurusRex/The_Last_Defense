@@ -68,9 +68,9 @@ MonoBehaviour:
   damage: 10
   explosiveDamage: 10
   fusetime: 0
-  stuntime: 3
+  stuntime: 1
   range: 30
-  explodeRadius: 5
+  explodeRadius: 4
   explosive: 1
   grenade: 1
   fused: 0

@@ -81,8 +81,8 @@ MonoBehaviour:
   WaveText: {fileID: 0}
   waveNumber: {fileID: 0}
   NextWaveSound: {fileID: 8300000, guid: 7082aa91476434073809693d3d5988a6, type: 3}
-  WaveBeginSound: {fileID: 8300000, guid: 9158afb6966d445db9caf1dccf7acbcc, type: 3}
-  WaveEndSound: {fileID: 8300000, guid: 9158afb6966d445db9caf1dccf7acbcc, type: 3}
+  WaveBeginSound: {fileID: 8300000, guid: f2892a78c7fe1fe4baedc1e58ebd9743, type: 3}
+  WaveEndSound: {fileID: 8300000, guid: 3a1bd72cd5397884f8dd39bf50ff9f47, type: 3}
 --- !u!82 &4969313275071356769
 AudioSource:
   m_ObjectHideFlags: 0

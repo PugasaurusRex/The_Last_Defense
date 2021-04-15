@@ -181,8 +181,7 @@ public class EnemyController : MonoBehaviour
             }
             else if (TargetObject == Goal)
             {
-                GoalScript temp = Goal.GetComponent<GoalScript>();
-                temp.health -= damage;
+                Goal.GetComponent<GoalScript>().TakeDamage(damage);
             }
             else if (AttackTowers)
             {

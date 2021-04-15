@@ -82,6 +82,7 @@ public class Menu : MonoBehaviour
                     Speaker.PlayOneShot(Speaker.clip);
 
                     CanPause = true;
+                    GameObject.Find("Player").GetComponent<PlayerController>().MouseUsed = false;
                 }
             }
         }

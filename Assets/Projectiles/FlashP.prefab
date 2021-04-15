@@ -97,9 +97,10 @@ MonoBehaviour:
   speed: 8
   damage: 1
   explosiveDamage: 1
-  fusetime: 3
+  fusetime: 2
   stuntime: 3
   range: 10
+  explodeRadius: 5
   explosive: 1
   grenade: 1
   fused: 1

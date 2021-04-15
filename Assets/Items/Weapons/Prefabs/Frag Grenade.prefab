@@ -187,7 +187,7 @@ MonoBehaviour:
   UseSound: {fileID: 8300000, guid: eeec711448f7ef546b7f8c4362886f71, type: 3}
   GrenadeObject: {fileID: 1698056052845220, guid: b5c04cd150fafe7469b64dab15a5be00,
     type: 3}
-  explosiveDamage: 10
+  explosiveDamage: 15
 --- !u!82 &-2863699004525377705
 AudioSource:
   m_ObjectHideFlags: 0

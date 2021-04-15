@@ -1107,7 +1107,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -1919,12 +1919,6 @@ MonoBehaviour:
   PlayerDistance: 15
   PlacedTowers: []
   lineVisible: 0
-  RiflePrice: 200
-  SniperPrice: 300
-  MachinegunPrice: 250
-  MissilePrice: 500
-  AirDefensePrice: 300
-  MortarPrice: 350
   TempTower: {fileID: 0}
   ShopRifle: {fileID: 1177561085511901930, guid: 5d9034153d11c714983c7d768182f3e9,
     type: 3}
@@ -18414,7 +18408,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
+            m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -27885,7 +27879,7 @@ PrefabInstance:
     - target: {fileID: 295126210646667549, guid: b4cfdce7c55299941a4570ee6fb10535,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 97.4
+      value: 130.8
       objectReference: {fileID: 0}
     - target: {fileID: 295126210646667549, guid: b4cfdce7c55299941a4570ee6fb10535,
         type: 3}
