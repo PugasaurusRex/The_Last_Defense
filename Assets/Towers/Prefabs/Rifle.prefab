@@ -399,9 +399,9 @@ MonoBehaviour:
   shootFlying: 1
   shootGround: 1
   damage: 15
-  range: 10
+  range: 12
   fireRate: 1
-  accuracy: 0.75
+  accuracy: 0.8
   rotator: {fileID: 5975862087637617934}
   Projectile: {fileID: 0}
   MuzzleFlash: {fileID: 349849507548290935}
@@ -515,8 +515,8 @@ NavMeshObstacle:
   m_GameObject: {fileID: 5975862089745558820}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 4, y: 2, z: 4}
+  m_Shape: 0
+  m_Extents: {x: 0.7, y: 0.25, z: 0.7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1

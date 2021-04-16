@@ -5162,8 +5162,8 @@ NavMeshObstacle:
   m_GameObject: {fileID: 3973225635789686927}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 0.5, z: 1}
+  m_Shape: 0
+  m_Extents: {x: 0.7, y: 0.25, z: 0.7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -5180,7 +5180,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.27
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &-1631364663682696261
 AudioSource:

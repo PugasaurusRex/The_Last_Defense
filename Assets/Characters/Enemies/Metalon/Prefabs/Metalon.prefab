@@ -822,16 +822,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf868ba2958f6f49a303240036778e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gate: {fileID: 0}
+  passGate: 1
   target: {x: 0, y: 0, z: 0}
-  attackDistance: 1
-  attackCooldown: 1
-  damage: 1
-  droppedScrap: 10
+  attackDistance: 3
+  attackCooldown: 2
+  damage: 6
+  droppedScrap: 7
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 10
   flying: 0
-  health: 100
+  health: 22
   armor: 0
   healthDisplay: {fileID: 2516950301375436329}
 --- !u!136 &2692796876036929597
@@ -841,7 +843,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462720695320296}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 12cce144b084c854fa1d3ec94674bb82, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1
@@ -858,7 +860,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

@@ -15,7 +15,7 @@ public class TowerShop : MonoBehaviour
 
     public GameObject ErrorMenu;
 
-    public float PlaceDistance = 5f;
+    public float PlaceDistance = 6f;
     public float PlayerDistance = 15f;
 
     public List<GameObject> PlacedTowers = new List<GameObject>();
@@ -28,6 +28,8 @@ public class TowerShop : MonoBehaviour
     public GameObject TempTower;
     int TempTowerCost = 0;
     int TowerId = 0;
+    float TempRange = 0;
+    LineRenderer line;
 
     public GameObject ShopRifle;
     public GameObject ShopSniper;
@@ -183,36 +185,50 @@ public class TowerShop : MonoBehaviour
             case 1:
                 TempTower = Instantiate(ShopRifle);
                 TempTowerCost = RifleInfo.cost;
+                TempRange = RifleInfo.range;
                 break;
 
             case 2:
                 TempTower = Instantiate(ShopSniper);
                 TempTowerCost = SniperInfo.cost;
+                TempRange = SniperInfo.range;
                 break;
 
             case 3:
                 TempTower = Instantiate(ShopMachinegun);
                 TempTowerCost = MachinegunInfo.cost;
+                TempRange = MachinegunInfo.range;
                 break;
 
             case 4:
                 TempTower = Instantiate(ShopMissile);
                 TempTowerCost = MissileInfo.cost;
+                TempRange = MissileInfo.range;
                 break;
 
             case 5:
                 TempTower = Instantiate(ShopAirDefense);
                 TempTowerCost = AirDefenseInfo.cost;
+                TempRange = AirDefenseInfo.range;
                 break;
 
             case 6:
                 TempTower = Instantiate(ShopMortar);
                 TempTowerCost = MortarInfo.cost;
+                TempRange = MortarInfo.range;
                 break;
 
             default:
                 break;
         }
+
+        // Shop Tower Line
+        line = TempTower.GetComponent<LineRenderer>();
+        line.positionCount = 50 + 1;
+        line.useWorldSpace = false;
+        line.startWidth = .2f;
+        CreatePoints();
+        line.enabled = true;
     }
 
     void PlaceTower(Vector3 Point, Quaternion Rot)
@@ -347,5 +363,38 @@ public class TowerShop : MonoBehaviour
         ErrorMenu.SetActive(true);
         yield return new WaitForSeconds(2f);
         ErrorMenu.SetActive(false);
+    }
+
+    void CreatePoints()
+    {
+        float x;
+        float z;
+
+        float angle = 20f;
+
+        if (TempTower.transform.lossyScale.x < 1)
+        {
+            for (int i = 0; i < (50 + 1); i++)
+            {
+                x = Mathf.Sin(Mathf.Deg2Rad * angle) * TempRange * 4;
+                z = Mathf.Cos(Mathf.Deg2Rad * angle) * TempRange * 4;
+
+                line.SetPosition(i, new Vector3(x, .5f, z));
+
+                angle += (360f / 50);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < (50 + 1); i++)
+            {
+                x = Mathf.Sin(Mathf.Deg2Rad * angle) * TempRange;
+                z = Mathf.Cos(Mathf.Deg2Rad * angle) * TempRange;
+
+                line.SetPosition(i, new Vector3(x, .5f, z));
+
+                angle += (360f / 50);
+            }
+        }
     }
 }

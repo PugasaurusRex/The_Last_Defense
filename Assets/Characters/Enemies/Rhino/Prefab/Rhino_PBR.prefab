@@ -827,13 +827,13 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   attackDistance: 3
   attackCooldown: 2
-  damage: 20
+  damage: 5
   droppedScrap: 7
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 10
   flying: 0
-  health: 15
+  health: 20
   armor: 0
   healthDisplay: {fileID: 2003977232169524242}
 --- !u!136 &1839365560295669049
@@ -843,7 +843,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153050}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 12cce144b084c854fa1d3ec94674bb82, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5

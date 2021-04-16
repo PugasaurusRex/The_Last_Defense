@@ -610,7 +610,7 @@ MonoBehaviour:
   damage: 2
   range: 10
   fireRate: 0.1
-  accuracy: 0.5
+  accuracy: 0.7
   rotator: {fileID: 1101138171766222}
   Projectile: {fileID: 0}
   MuzzleFlash: {fileID: 6591098045097828978}
@@ -724,12 +724,12 @@ NavMeshObstacle:
   m_GameObject: {fileID: 1267933996077318}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.984, y: 0.25, z: 1}
+  m_Shape: 0
+  m_Extents: {x: 0.7, y: 0.25, z: 0.7}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Center: {x: -0.008, y: 0.25, z: 0}
   m_TimeToStationary: 0.5
 --- !u!135 &-7521446796475340242
 SphereCollider:
@@ -742,7 +742,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.24
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &-6166920259482118012
 AudioSource:

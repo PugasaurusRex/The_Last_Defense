@@ -1847,16 +1847,10 @@ MonoBehaviour:
   WaveControl: {fileID: 2013334464}
   Settings: {fileID: 2095627113}
   ErrorMenu: {fileID: 1059773539}
-  PlaceDistance: 5
+  PlaceDistance: 7
   PlayerDistance: 15
   PlacedTowers: []
   lineVisible: 0
-  RiflePrice: 200
-  SniperPrice: 300
-  MachinegunPrice: 250
-  MissilePrice: 500
-  AirDefensePrice: 300
-  MortarPrice: 350
   TempTower: {fileID: 0}
   ShopRifle: {fileID: 1177561085511901930, guid: 5d9034153d11c714983c7d768182f3e9,
     type: 3}

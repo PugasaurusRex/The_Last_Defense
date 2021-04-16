@@ -252,7 +252,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 3250241043533885959}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
   numBullets: 1
-  accuracy: 5
+  accuracy: 4
 --- !u!82 &3736015292376136782
 AudioSource:
   m_ObjectHideFlags: 0
