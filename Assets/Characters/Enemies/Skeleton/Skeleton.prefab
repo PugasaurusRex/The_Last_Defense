@@ -610,15 +610,15 @@ MonoBehaviour:
   Gate: {fileID: 0}
   passGate: 1
   target: {x: 0, y: 0, z: 0}
-  attackDistance: 1
+  attackDistance: 2
   attackCooldown: 1
-  damage: 1
-  droppedScrap: 10
-  AttackPlayer: 0
+  damage: 3
+  droppedScrap: 3
+  AttackPlayer: 1
   AttackTowers: 0
-  ViewDistance: 10
+  ViewDistance: 15
   flying: 0
-  health: 100
+  health: 25
   armor: 0
   healthDisplay: {fileID: 6533131335481146419}
 --- !u!136 &3586216450838407252
@@ -645,7 +645,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

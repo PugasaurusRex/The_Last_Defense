@@ -173,20 +173,29 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(Anim.GetCurrentAnimatorStateInfo(0).length);
 
         // Deal Damage
-        if (TargetObject != null)
+        try
         {
-            if (AttackPlayer && TargetObject == Player)
+            if (TargetObject != null)
             {
-                PlayerInfo.TakeDamage(damage);
+                if (AttackPlayer && TargetObject == Player)
+                {
+                    PlayerInfo.TakeDamage(damage);
+                }
+                else if (TargetObject == Goal)
+                {
+                    Goal.GetComponent<GoalScript>().TakeDamage(damage);
+                }
+                else if (AttackTowers)
+                {
+                    TargetObject.GetComponent<TowerController>().TakeDamage(damage);
+                }
             }
-            else if (TargetObject == Goal)
-            {
-                Goal.GetComponent<GoalScript>().TakeDamage(damage);
-            }
-            else if (AttackTowers)
-            {
-                TargetObject.GetComponent<TowerController>().TakeDamage(damage);
-            }
+        }
+        catch
+        {
+            TargetObject = null;
+            targeting = false;
+            SetTargetGoal();
         }
         Anim.SetBool("Attack", false);
     }

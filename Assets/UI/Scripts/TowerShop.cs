@@ -14,6 +14,7 @@ public class TowerShop : MonoBehaviour
     Menu MenuSettings;
 
     public GameObject ErrorMenu;
+    bool valid = false;
 
     public float PlaceDistance = 6f;
     public float PlayerDistance = 15f;
@@ -30,6 +31,8 @@ public class TowerShop : MonoBehaviour
     int TowerId = 0;
     float TempRange = 0;
     LineRenderer line;
+    public Material ValidMat;
+    public Material InvalidMat;
 
     public GameObject ShopRifle;
     public GameObject ShopSniper;
@@ -104,50 +107,62 @@ public class TowerShop : MonoBehaviour
 
             if (TempTower != null)
             {
+                PlayerInfo.MouseUsed = true;
+
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                 {
                     TempTower.transform.position = hit.point;
-                }
-            }
+                    valid = false;
 
-            if (Input.GetMouseButtonDown(0) && TempTower != null)
-            {
-                if (PlayerInfo.scrap >= TempTowerCost)
-                {
-                    if(CheckTowerDistance())
+                    // Determine Line color for valid placement
+                    if (CheckTowerDistance())
                     {
-                        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
+                        int walkableMask = 1 << NavMesh.GetAreaFromName("Walk");
+                        int priorityMask = 1 << NavMesh.GetAreaFromName("Priority");
+                        if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit, 1f, walkableMask) && hit.collider.gameObject.tag != "Enemy")
                         {
-                            int walkableMask = 1 << NavMesh.GetAreaFromName("Walk");
-                            int priorityMask = 1 << NavMesh.GetAreaFromName("Priority");
-                            if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit, 1f, walkableMask) && hit.collider.gameObject.tag != "Enemy")
-                            {
-                                PlaceTower(hit.point, hit.transform.rotation);
-                                PlayerInfo.scrap -= TempTowerCost;
-                            }
-                            else if (NavMesh.SamplePosition(hit.point, out NavMeshHit navmeshHit2, 1f, priorityMask) && hit.collider.gameObject.tag != "Enemy")
+                            line.material = ValidMat;
+                            valid = true;
+                        }
+                        else if (NavMesh.SamplePosition(hit.point, out NavMeshHit h2, 1f, priorityMask) && hit.collider.gameObject.tag != "Enemy")
+                        {
+                            line.material = ValidMat;
+                            valid = true;
+                        }
+                        else
+                        {
+                            line.material = InvalidMat;
+                            valid = false;
+                            ErrorMenu.GetComponentInChildren<TMP_Text>().text = "Invalid Location";
+                        }
+                    }
+                    else
+                    {
+                        line.material = InvalidMat;
+                        valid = false;
+                    }
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        if (valid)
+                        {
+                            if (PlayerInfo.scrap >= TempTowerCost)
                             {
                                 PlaceTower(hit.point, hit.transform.rotation);
                                 PlayerInfo.scrap -= TempTowerCost;
                             }
                             else
                             {
-                                ErrorMenu.GetComponentInChildren<TMP_Text>().text = "Invalid Location";
+                                ErrorMenu.GetComponentInChildren<TMP_Text>().text = "Not enough scrap.";
                                 StartCoroutine(ErrorMessage());
                             }
                         }
+                        else
+                        {
+                            StartCoroutine(ErrorMessage());
+                        }
                     }
                 }
-                else
-                {
-                    ErrorMenu.GetComponentInChildren<TMP_Text>().text = "Not enough scrap.";
-                    StartCoroutine(ErrorMessage());
-                }
-            }
-
-            if (TempTower != null)
-            {
-                PlayerInfo.MouseUsed = true;
             }
 
             if (Input.GetKeyDown(Controls.keys["ToggleLines"]))
@@ -285,7 +300,6 @@ public class TowerShop : MonoBehaviour
         if (wave.inWave && Vector3.Distance(Player.transform.position, TempTower.transform.position) > PlayerDistance)
         {
             ErrorMenu.GetComponentInChildren<TMP_Text>().text = "To far from player.";
-            StartCoroutine(ErrorMessage());
             return false;
         }
 
@@ -294,7 +308,6 @@ public class TowerShop : MonoBehaviour
             if (Vector3.Distance(TempTower.transform.position, i.transform.position) < PlaceDistance)
             {
                 ErrorMenu.GetComponentInChildren<TMP_Text>().text = "To close to another tower.";
-                StartCoroutine(ErrorMessage());
                 return false;
             }
         }
@@ -379,7 +392,7 @@ public class TowerShop : MonoBehaviour
                 x = Mathf.Sin(Mathf.Deg2Rad * angle) * TempRange * 4;
                 z = Mathf.Cos(Mathf.Deg2Rad * angle) * TempRange * 4;
 
-                line.SetPosition(i, new Vector3(x, .5f, z));
+                line.SetPosition(i, new Vector3(x, 0.5f, z));
 
                 angle += (360f / 50);
             }
@@ -391,7 +404,7 @@ public class TowerShop : MonoBehaviour
                 x = Mathf.Sin(Mathf.Deg2Rad * angle) * TempRange;
                 z = Mathf.Cos(Mathf.Deg2Rad * angle) * TempRange;
 
-                line.SetPosition(i, new Vector3(x, .5f, z));
+                line.SetPosition(i, new Vector3(x, 0.5f, z));
 
                 angle += (360f / 50);
             }

@@ -827,7 +827,7 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   attackDistance: 3
   attackCooldown: 2
-  damage: 5
+  damage: 4
   droppedScrap: 7
   AttackPlayer: 0
   AttackTowers: 0

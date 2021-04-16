@@ -172,10 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2a3c32c8dde2442bf55cfb4b240a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 400
+  cost: 350
   reloadTime: 4
   rateOfFire: 1
-  damage: 10
+  damage: 15
   rifle: 1
   usingItem: 0
   canUse: 1

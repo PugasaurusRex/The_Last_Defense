@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 300
-  reloadTime: 3
+  reloadTime: 2.5
   rateOfFire: 0.8
   damage: 3
   rifle: 1

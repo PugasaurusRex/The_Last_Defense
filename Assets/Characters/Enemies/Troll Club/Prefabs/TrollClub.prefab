@@ -1375,15 +1375,15 @@ MonoBehaviour:
   Gate: {fileID: 0}
   passGate: 1
   target: {x: 0, y: 0, z: 0}
-  attackDistance: 1
+  attackDistance: 3
   attackCooldown: 1
-  damage: 1
-  droppedScrap: 10
+  damage: 2
+  droppedScrap: 3
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 10
   flying: 0
-  health: 100
+  health: 12
   armor: 0
   healthDisplay: {fileID: 6408207474159621697}
 --- !u!136 &8558271810632527883

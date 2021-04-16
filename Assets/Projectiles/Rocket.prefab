@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 16
   damage: 5
-  explosiveDamage: 10
+  explosiveDamage: 15
   fusetime: 0
   stuntime: 3
   range: 0

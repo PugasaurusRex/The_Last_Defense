@@ -1184,7 +1184,7 @@ MonoBehaviour:
   damage: 100
   droppedScrap: 1000
   AttackPlayer: 0
-  AttackTowers: 1
+  AttackTowers: 0
   ViewDistance: 20
   flying: 0
   health: 2500

@@ -1563,10 +1563,10 @@ MonoBehaviour:
   damage: 11
   droppedScrap: 10
   AttackPlayer: 0
-  AttackTowers: 1
+  AttackTowers: 0
   ViewDistance: 15
   flying: 1
-  health: 65
+  health: 55
   armor: 0
   healthDisplay: {fileID: 5045142396621132244}
 --- !u!136 &505106772477927002

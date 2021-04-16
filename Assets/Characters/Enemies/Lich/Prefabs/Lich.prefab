@@ -444,7 +444,7 @@ MonoBehaviour:
   Gate: {fileID: 0}
   passGate: 1
   target: {x: 0, y: 0, z: 0}
-  attackDistance: 3
+  attackDistance: 2
   attackCooldown: 2
   damage: 6
   droppedScrap: 7
