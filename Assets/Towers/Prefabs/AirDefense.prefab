@@ -5216,6 +5216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InRange: []
+  description: 'Explode Radius: 3; Targets flying only;'
   health: 100
   maxHealth: 0
   cost: 300

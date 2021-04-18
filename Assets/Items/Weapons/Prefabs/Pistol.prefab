@@ -236,6 +236,9 @@ MonoBehaviour:
   reloadTime: 2
   rateOfFire: 0.2
   damage: 3
+  accuracy: 4
+  description: Starter weapon with average damage, fire rate, and accuracy.
+  healAmount: 0
   rifle: 0
   usingItem: 0
   canUse: 1
@@ -247,12 +250,11 @@ MonoBehaviour:
   HandPosition: {x: 0.005, y: -0.0267, z: 0.0195}
   HandRotation: {x: -90, y: -90, z: -90}
   Speaker: {fileID: 0}
-  UseSound: {fileID: 8300000, guid: bd83c36222ec1c0448601661f1573860, type: 3}
+  UseSound: {fileID: 8300000, guid: 2203773368e4340d98c114f55c2dd7fd, type: 3}
   MuzzleFlash: {fileID: 4981539999528191012}
   bulletSpawn: {fileID: 3250241043533885959}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
   numBullets: 1
-  accuracy: 4
 --- !u!82 &3736015292376136782
 AudioSource:
   m_ObjectHideFlags: 0

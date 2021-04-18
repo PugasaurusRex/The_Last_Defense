@@ -152,6 +152,16 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int incomingDamage)
     {
+        try
+        {
+            Speaker.clip = TakeDamageSound;
+            Speaker.PlayOneShot(Speaker.clip);
+        }
+        catch
+        {
+            Debug.Log("No Audio for taking damage");
+        }
+
         if (armor >= incomingDamage)
         {
             armor -= incomingDamage;

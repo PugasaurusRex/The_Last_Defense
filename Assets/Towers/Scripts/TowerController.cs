@@ -8,6 +8,8 @@ public class TowerController : MonoBehaviour
     // Store All Enemies In Range of The Tower.
     public List<GameObject> InRange = new List<GameObject>();
 
+    public string description;
+
     GameObject Wave;
     WaveController WaveInfo;
 

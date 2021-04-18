@@ -602,6 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InRange: []
+  description: 
   health: 100
   maxHealth: 0
   cost: 300
@@ -610,7 +611,7 @@ MonoBehaviour:
   damage: 2
   range: 10
   fireRate: 0.1
-  accuracy: 0.7
+  accuracy: 0.75
   rotator: {fileID: 1101138171766222}
   Projectile: {fileID: 0}
   MuzzleFlash: {fileID: 6591098045097828978}

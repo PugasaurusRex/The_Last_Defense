@@ -178,6 +178,10 @@ MonoBehaviour:
   reloadTime: 3
   rateOfFire: 0.15
   damage: 3
+  accuracy: 8
+  description: High rate of fire weapon that deals average damage with low average
+    accuracy.
+  healAmount: 0
   rifle: 0
   usingItem: 0
   canUse: 1
@@ -189,12 +193,11 @@ MonoBehaviour:
   HandPosition: {x: 0.005, y: -0.0267, z: 0.0195}
   HandRotation: {x: -90, y: -90, z: -90}
   Speaker: {fileID: 0}
-  UseSound: {fileID: 8300000, guid: bd83c36222ec1c0448601661f1573860, type: 3}
+  UseSound: {fileID: 8300000, guid: 0dbe91efb8ee94e6695ef0f552d202ce, type: 3}
   MuzzleFlash: {fileID: 5689089578548616604}
   bulletSpawn: {fileID: 5766647832790738432}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
   numBullets: 1
-  accuracy: 8
 --- !u!82 &-7139644360704149848
 AudioSource:
   m_ObjectHideFlags: 0

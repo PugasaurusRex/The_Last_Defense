@@ -486,7 +486,10 @@ MonoBehaviour:
   cost: 400
   reloadTime: 4
   rateOfFire: 1
-  damage: 20
+  damage: 25
+  accuracy: 0
+  description: Low rate of fire weapon that deals a lot of damage with perfect accuracy.
+  healAmount: 0
   rifle: 1
   usingItem: 0
   canUse: 1
@@ -503,7 +506,6 @@ MonoBehaviour:
   bulletSpawn: {fileID: 7152558965887218920}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
   numBullets: 1
-  accuracy: 0
 --- !u!82 &-7219551634579777198
 AudioSource:
   m_ObjectHideFlags: 0

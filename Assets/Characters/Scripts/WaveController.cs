@@ -45,6 +45,7 @@ public class WaveController : MonoBehaviour
     public GameObject WaveText;
 
     public TMP_Text waveNumber;
+    public TMP_Text waveInfoText;
 
     AudioSource Speaker;
     public AudioClip NextWaveSound;
@@ -105,12 +106,11 @@ public class WaveController : MonoBehaviour
         WaveList[10].Add(new Enemy(4, 15, .3f));
 
         WaveList[11].Add(new Enemy(5, 5, 1f));
-        WaveList[11].Add(new Enemy(2, 10, .5f));
+        WaveList[11].Add(new Enemy(2, 20, .5f));
         WaveList[11].Add(new Enemy(5, 5, 1f));
         WaveList[11].Add(new Enemy(6, 15, .5f));
         WaveList[11].Add(new Enemy(5, 5, 1f));
         WaveList[11].Add(new Enemy(6, 15, .5f));
-        WaveList[11].Add(new Enemy(2, 10, .5f));
 
         WaveList[12].Add(new Enemy(6, 30, .5f));
 
@@ -122,6 +122,8 @@ public class WaveController : MonoBehaviour
         WaveList[13].Add(new Enemy(4, 30, .3f));
 
         WaveList[14].Add(new Enemy(7, 1, 1f));
+
+        NextWaveInfo(0);
     }
 
     // Update is called once per frame
@@ -160,6 +162,7 @@ public class WaveController : MonoBehaviour
 
     public void WaveCreator()
     {
+        // Wave Complete
         if (num >= WaveList[wave - 1].Count)
         {
             GameObject temp = GameObject.FindGameObjectWithTag("Enemy");
@@ -171,9 +174,11 @@ public class WaveController : MonoBehaviour
             inWave = false;
             num = 0;
             StartCoroutine(WaveComplete());
+            NextWaveInfo(wave);
             return;
         }
 
+        // Continue Wave
         canSpawn = false;
 
         if (WaveList[wave - 1][num].count > numSpawned)
@@ -237,5 +242,28 @@ public class WaveController : MonoBehaviour
         WaveText.SetActive(true);
         yield return new WaitForSeconds(NotifTime);
         WaveText.SetActive(false);
+    }
+
+    public void NextWaveInfo(int waveNum)
+    {
+        waveInfoText.text = "";
+        int counter = 0;
+
+        foreach(Enemy i in WaveList[waveNum])
+        {
+            if (level == 1)
+            {
+                waveInfoText.text += L1Enemies[WaveList[waveNum][counter].id].name + ": " + i.count + "\n";
+            }
+            else if (level == 2)
+            {
+                waveInfoText.text += L2Enemies[WaveList[waveNum][counter].id].name + ": " + i.count + "\n";
+            }
+            else
+            {
+                waveInfoText.text += L3Enemies[WaveList[waveNum][counter].id].name + ": " + i.count + "\n";
+            }
+            counter++;
+        }
     }
 }

@@ -102,6 +102,9 @@ MonoBehaviour:
   reloadTime: 3.5
   rateOfFire: 0.25
   damage: 4
+  accuracy: 4
+  description: Medium fire rate weapon with average damage and good accuracy.
+  healAmount: 0
   rifle: 1
   usingItem: 0
   canUse: 1
@@ -113,12 +116,11 @@ MonoBehaviour:
   HandPosition: {x: 0.0047, y: -0.0969, z: 0.0018}
   HandRotation: {x: -90, y: -90, z: -90}
   Speaker: {fileID: 0}
-  UseSound: {fileID: 8300000, guid: bd83c36222ec1c0448601661f1573860, type: 3}
+  UseSound: {fileID: 8300000, guid: fc49f7bc2d9bbcd41b6ed7f95585179c, type: 3}
   MuzzleFlash: {fileID: 2928460526583549363}
   bulletSpawn: {fileID: 3016742200716599128}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
   numBullets: 1
-  accuracy: 4
 --- !u!82 &7260412624665627616
 AudioSource:
   m_ObjectHideFlags: 0

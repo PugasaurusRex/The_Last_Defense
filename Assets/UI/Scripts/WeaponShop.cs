@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponShop : MonoBehaviour
 {
     public GameObject[] items;
+    public Image[] shopImages;
     public int[] mags;
     public List<GameObject> purchasedItems = new List<GameObject>();
 
-    public GameObject Player;
+    GameObject Player;
     PlayerController PlayerInfo;
 
     public GameObject ErrorMenu;
@@ -44,8 +46,8 @@ public class WeaponShop : MonoBehaviour
         Player = GameObject.Find("Player");
         PlayerInfo = Player.GetComponent<PlayerController>();
 
+        shopImages[0].color = Color.yellow;
         SetActiveItem(0);
-        purchasedItems.Add(items[0]);
     }
 
     // Update is called once per frame
@@ -81,6 +83,13 @@ public class WeaponShop : MonoBehaviour
             PlayerInfo.ActiveWeapon = temp;
             PlayerInfo.ActiveWeaponInfo = temp.GetComponent<Item>();
             PlayerInfo.ActiveWeaponInfo.mag = mags[id];
+
+            if(lastId >= 0)
+            {
+                shopImages[lastId].color = Color.yellow;
+            }
+            shopImages[id].color = Color.red;
+
             lastId = id;
         }
     }

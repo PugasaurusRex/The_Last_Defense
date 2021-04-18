@@ -176,6 +176,10 @@ MonoBehaviour:
   reloadTime: 4
   rateOfFire: 1
   damage: 15
+  accuracy: 4
+  description: Low rate of fire weapon that deals explosive damage to all enemies
+    in a radius of 7.
+  healAmount: 0
   rifle: 1
   usingItem: 0
   canUse: 1
@@ -187,12 +191,11 @@ MonoBehaviour:
   HandPosition: {x: 0.0047, y: -0.0973, z: 0.0668}
   HandRotation: {x: -90, y: -90, z: -90}
   Speaker: {fileID: 0}
-  UseSound: {fileID: 8300000, guid: bd83c36222ec1c0448601661f1573860, type: 3}
+  UseSound: {fileID: 8300000, guid: c9d53c66c229bd743bb0d37e0b8f0b06, type: 3}
   MuzzleFlash: {fileID: 176499472733290577}
   bulletSpawn: {fileID: 9106407210911688947}
   bullet: {fileID: 2769693306594560029, guid: 1ea13ca007faac5459e924124f6a8827, type: 3}
   numBullets: 1
-  accuracy: 4
 --- !u!82 &-1254154840627938617
 AudioSource:
   m_ObjectHideFlags: 0

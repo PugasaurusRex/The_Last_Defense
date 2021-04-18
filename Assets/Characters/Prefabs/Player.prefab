@@ -90,7 +90,7 @@ MonoBehaviour:
   MouseUsed: 0
   DieSound: {fileID: 0}
   WalkSound: {fileID: 0}
-  TakeDamageSound: {fileID: 0}
+  TakeDamageSound: {fileID: 8300000, guid: a82c04b011e4f9341a247955438eafd1, type: 3}
 --- !u!54 &295126210647158008
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

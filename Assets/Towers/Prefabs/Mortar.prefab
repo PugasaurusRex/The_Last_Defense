@@ -5040,6 +5040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InRange: []
+  description: 'Explode Radius: 4; Stuns Enemies'
   health: 100
   maxHealth: 0
   cost: 350

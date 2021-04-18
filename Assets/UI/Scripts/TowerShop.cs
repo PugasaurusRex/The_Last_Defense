@@ -6,8 +6,8 @@ using UnityEngine.AI;
 
 public class TowerShop : MonoBehaviour
 {
-    public GameObject Player;
-    public GameObject WaveControl;
+    GameObject Player;
+    GameObject WaveControl;
     WaveController wave;
     public GameObject Settings;
     SettingsController Controls;
@@ -62,6 +62,7 @@ public class TowerShop : MonoBehaviour
     public TMP_Text RangeText;
     public TMP_Text AccuracyText;
     public TMP_Text FireRateText;
+    public TMP_Text DescriptionText;
 
     AudioSource Speaker;
     public AudioClip SelectTowerSound;
@@ -324,6 +325,7 @@ public class TowerShop : MonoBehaviour
                 RangeText.text = "" + RifleInfo.range;
                 AccuracyText.text = "" + RifleInfo.accuracy;
                 FireRateText.text = "" + RifleInfo.fireRate;
+                DescriptionText.text = "" + RifleInfo.description;
                 break;
 
             case 2:
@@ -332,6 +334,7 @@ public class TowerShop : MonoBehaviour
                 RangeText.text = "" + SniperInfo.range;
                 AccuracyText.text = "" + SniperInfo.accuracy;
                 FireRateText.text = "" + SniperInfo.fireRate;
+                DescriptionText.text = "" + SniperInfo.description;
                 break;
 
             case 3:
@@ -340,6 +343,7 @@ public class TowerShop : MonoBehaviour
                 RangeText.text = "" + MachinegunInfo.range;
                 AccuracyText.text = "" + MachinegunInfo.accuracy;
                 FireRateText.text = "" + MachinegunInfo.fireRate;
+                DescriptionText.text = "" + MachinegunInfo.description;
                 break;
 
             case 4:
@@ -348,6 +352,7 @@ public class TowerShop : MonoBehaviour
                 RangeText.text = "" + MissileInfo.range;
                 AccuracyText.text = "" + MissileInfo.accuracy;
                 FireRateText.text = "" + MissileInfo.fireRate;
+                DescriptionText.text = "" + MissileInfo.description;
                 break;
 
             case 5:
@@ -356,6 +361,7 @@ public class TowerShop : MonoBehaviour
                 RangeText.text = "" + AirDefenseInfo.range;
                 AccuracyText.text = "" + AirDefenseInfo.accuracy;
                 FireRateText.text = "" + AirDefenseInfo.fireRate;
+                DescriptionText.text = "" + AirDefenseInfo.description;
                 break;
 
             case 6:
@@ -364,6 +370,7 @@ public class TowerShop : MonoBehaviour
                 RangeText.text = "" + MortarInfo.range;
                 AccuracyText.text = "" + MortarInfo.accuracy;
                 FireRateText.text = "" + MortarInfo.fireRate;
+                DescriptionText.text = "" + MortarInfo.description;
                 break;
 
             default:

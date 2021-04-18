@@ -60,7 +60,7 @@ MonoBehaviour:
   - {fileID: 1500939411536426, guid: 274c4c35ed05ea14c87492064b3cadfd, type: 3}
   - {fileID: 1462720695320296, guid: e9a03d46b76afe246a9ffd58d255bb65, type: 3}
   - {fileID: 8641411169166709556, guid: 35d49f1c032a45b4fb0b934bf5a8836d, type: 3}
-  - {fileID: 1076264827533086, guid: 5c3a84888f204f04fa2982fb46ddc305, type: 3}
+  - {fileID: 1387837153944644, guid: 23d8a5a9305a2254487a6e2888e2f604, type: 3}
   - {fileID: 101568, guid: 59c100dd669d88f46b60555886d4dae7, type: 3}
   L3Enemies:
   - {fileID: 6369409488121758088, guid: a551daea9013db647a87d441ad14ef3c, type: 3}
@@ -80,6 +80,7 @@ MonoBehaviour:
   NotifTime: 2
   WaveText: {fileID: 0}
   waveNumber: {fileID: 0}
+  waveInfoText: {fileID: 0}
   NextWaveSound: {fileID: 8300000, guid: 7082aa91476434073809693d3d5988a6, type: 3}
   WaveBeginSound: {fileID: 8300000, guid: f2892a78c7fe1fe4baedc1e58ebd9743, type: 3}
   WaveEndSound: {fileID: 8300000, guid: 3a1bd72cd5397884f8dd39bf50ff9f47, type: 3}

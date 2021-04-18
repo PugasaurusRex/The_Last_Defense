@@ -4916,6 +4916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InRange: []
+  description: 'Explode Radius: 5'
   health: 100
   maxHealth: 0
   cost: 400

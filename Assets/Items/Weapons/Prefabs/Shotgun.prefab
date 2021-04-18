@@ -99,6 +99,9 @@ MonoBehaviour:
   reloadTime: 2.5
   rateOfFire: 0.8
   damage: 3
+  accuracy: 20
+  description: Average rate of fire weapon that fires 5 bullets with low accuracy.
+  healAmount: 0
   rifle: 1
   usingItem: 0
   canUse: 1
@@ -115,7 +118,6 @@ MonoBehaviour:
   bulletSpawn: {fileID: 4980731317822826016}
   bullet: {fileID: 8487117704508364235, guid: b968a5b41ed4a7449ba65c04c7df3e64, type: 3}
   numBullets: 5
-  accuracy: 20
 --- !u!82 &8515523845230257826
 AudioSource:
   m_ObjectHideFlags: 0

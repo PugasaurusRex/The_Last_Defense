@@ -100,7 +100,7 @@ MonoBehaviour:
   fusetime: 0
   stuntime: 3
   range: 0
-  explodeRadius: 5
+  explodeRadius: 7
   explosive: 1
   grenade: 0
   fused: 0

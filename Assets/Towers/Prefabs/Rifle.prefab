@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InRange: []
+  description: Targets ground and flying.
   health: 100
   maxHealth: 0
   cost: 200

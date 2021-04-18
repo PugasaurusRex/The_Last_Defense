@@ -166,11 +166,12 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(AttackAnimation());
         yield return new WaitForSeconds(attackCooldown);
         attacking = false;
+        Anim.SetBool("Attack", false);
     }
 
     IEnumerator AttackAnimation()
     {
-        yield return new WaitForSeconds(Anim.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(.3f);
 
         // Deal Damage
         try
@@ -197,7 +198,6 @@ public class EnemyController : MonoBehaviour
             targeting = false;
             SetTargetGoal();
         }
-        Anim.SetBool("Attack", false);
     }
 
     public void TakeDamage(int incomingDamage)

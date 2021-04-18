@@ -52,6 +52,7 @@ public class Menu : MonoBehaviour
 
         Controls = ControlMenu.GetComponent<SettingsController>();
         level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -226,6 +227,7 @@ public class Menu : MonoBehaviour
     {
         Speaker.clip = ApplySound;
         Speaker.PlayOneShot(Speaker.clip);
+
         Time.timeScale = 1;
         int temp = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
         UnityEngine.SceneManagement.SceneManager.LoadScene(temp);
