@@ -204,6 +204,10 @@ MonoBehaviour:
   reloadTime: 5
   rateOfFire: 1
   damage: 0
+  accuracy: 0
+  description: Re-Usable item that briefly increases the player speed by the heal
+    amount.
+  healAmount: 5
   rifle: 0
   usingItem: 0
   canUse: 1
@@ -221,7 +225,6 @@ MonoBehaviour:
   stim: 1
   tower: 0
   distance: 0
-  healAmount: 5
   stimLength: 5
 --- !u!1 &8990165811168199963
 GameObject:

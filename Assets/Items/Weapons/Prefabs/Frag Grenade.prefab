@@ -173,6 +173,9 @@ MonoBehaviour:
   reloadTime: 8
   rateOfFire: 1
   damage: 1
+  accuracy: 0
+  description: Re-Usable grenade that explodes in a radius of 7. Explodes after a
+    set time.
   rifle: 0
   usingItem: 0
   canUse: 1

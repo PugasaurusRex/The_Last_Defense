@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Item : MonoBehaviour
@@ -9,6 +10,9 @@ public class Item : MonoBehaviour
     public float reloadTime;
     public float rateOfFire;
     public int damage = 0;
+    public float accuracy = 0;
+    public string description;
+    public int healAmount = 0;
     public bool rifle = false;
 
     public bool usingItem = false;

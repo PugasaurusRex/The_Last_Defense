@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -33,10 +34,21 @@ public class Menu : MonoBehaviour
     public AudioClip ForwardSound;
     public AudioClip BackwardSound;
 
+    public AudioSource[] Sources;
+    public GameObject volumeSlider;
+
     // Start is called before the first frame update
     void Start()
     {
         Speaker = GetComponent<AudioSource>();
+        Sources = FindObjectsOfType<AudioSource>();
+
+        volumeSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volume", 1);
+
+        foreach (AudioSource i in Sources)
+        {
+            i.volume = PlayerPrefs.GetFloat("volume", 1);
+        }
 
         Controls = ControlMenu.GetComponent<SettingsController>();
         level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
@@ -45,7 +57,7 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(level != 0)
+        if(level != 0 && Time.timeScale != 0)
         {
             // Toggle Shop
             if (Input.GetKeyDown(Controls.keys["ToggleShop"]))
@@ -247,5 +259,16 @@ public class Menu : MonoBehaviour
     public void ToggleShopInfo(bool visible)
     {
          ShopInfo.SetActive(visible);
+    }
+
+    public void VolumeChanged()
+    {
+        PlayerPrefs.SetFloat("volume", volumeSlider.GetComponent<Slider>().value);
+        PlayerPrefs.Save();
+
+        foreach (AudioSource i in Sources)
+        {
+            i.volume = PlayerPrefs.GetFloat("volume", 1);
+        }
     }
 }

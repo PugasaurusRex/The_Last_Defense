@@ -141,7 +141,7 @@ MonoBehaviour:
   AttackTowers: 0
   ViewDistance: 20
   flying: 0
-  health: 2600
+  health: 2500
   armor: 0
   healthDisplay: {fileID: 7061120790545037476}
 --- !u!136 &-4512655513902386830

@@ -348,13 +348,13 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   attackDistance: 3
   attackCooldown: 2
-  damage: 8
+  damage: 6
   droppedScrap: 5
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 10
-  flying: 0
-  health: 25
+  flying: 1
+  health: 15
   armor: 0
   healthDisplay: {fileID: 1426319879168506760}
 --- !u!135 &-7997078950599305606
@@ -380,7 +380,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

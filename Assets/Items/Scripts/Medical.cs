@@ -13,7 +13,6 @@ public class Medical : Item
     TowerShop TowerShopRef;
     GoalScript Goal;
     public float distance = 0;
-    public int healAmount = 0;
     public float stimLength = 0;
 
     // Start is called before the first frame update

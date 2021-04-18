@@ -104,13 +104,13 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   attackDistance: 3
   attackCooldown: 3
-  damage: 10
+  damage: 9
   droppedScrap: 10
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 15
   flying: 1
-  health: 52
+  health: 50
   armor: 0
   healthDisplay: {fileID: 8930833296238733092}
 --- !u!135 &3815216116579032646

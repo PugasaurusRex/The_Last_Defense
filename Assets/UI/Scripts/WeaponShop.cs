@@ -25,6 +25,17 @@ public class WeaponShop : MonoBehaviour
     public AudioClip BuyWeaponSound;
     public AudioClip CancelSound;
 
+    public GameObject ShopInfoPanel;
+
+    public TMP_Text CostInfoText;
+    public TMP_Text DamageText;
+    public TMP_Text ReloadText;
+    public TMP_Text AccuracyText;
+    public TMP_Text FireRateText;
+    public TMP_Text HealText;
+    public TMP_Text DescriptionText;
+    public TMP_Text NameText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +45,7 @@ public class WeaponShop : MonoBehaviour
         PlayerInfo = Player.GetComponent<PlayerController>();
 
         SetActiveItem(0);
+        purchasedItems.Add(items[0]);
     }
 
     // Update is called once per frame
@@ -126,5 +138,22 @@ public class WeaponShop : MonoBehaviour
         ErrorMenu.SetActive(true);
         yield return new WaitForSeconds(2f);
         ErrorMenu.SetActive(false);
+    }
+
+    public void SetShopText(int id)
+    {
+        CostInfoText.text = "" + items[id].GetComponent<Item>().cost;
+        DamageText.text = "" + items[id].GetComponent<Item>().damage;
+        ReloadText.text = "" + items[id].GetComponent<Item>().reloadTime;
+        AccuracyText.text = "" + items[id].GetComponent<Item>().accuracy;
+        FireRateText.text = "" + items[id].GetComponent<Item>().rateOfFire;
+        HealText.text = "" + items[id].GetComponent<Item>().healAmount;
+        DescriptionText.text = "" + items[id].GetComponent<Item>().description;
+        NameText.text = "" + items[id].GetComponent<Item>().name;
+    }
+
+    public void ToggleShopInfo(bool toggle)
+    {
+        ShopInfoPanel.SetActive(toggle);
     }
 }

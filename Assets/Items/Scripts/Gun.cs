@@ -9,7 +9,6 @@ public class Gun : Item
     public GameObject bulletSpawn;
     public GameObject bullet;
     public int numBullets = 1;
-    public float accuracy = 0;
 
     // Start is called before the first frame update
     override public void Start()

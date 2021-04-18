@@ -96,6 +96,9 @@ MonoBehaviour:
   reloadTime: 5
   rateOfFire: 1
   damage: 1
+  accuracy: 0
+  description: Re-Usable grenade that explodes in a radius of 5. Stuns enemies causing
+    them to slow down temporarily.
   rifle: 0
   usingItem: 0
   canUse: 1
