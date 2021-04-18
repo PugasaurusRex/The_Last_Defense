@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: -8880403962804904778}
   - component: {fileID: -2059170747472209582}
   m_Layer: 0
-  m_Name: SmallDragon1
+  m_Name: Small Dragon
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   attackDistance: 3
   attackCooldown: 3
   damage: 9
-  droppedScrap: 10
+  droppedScrap: 12
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 15

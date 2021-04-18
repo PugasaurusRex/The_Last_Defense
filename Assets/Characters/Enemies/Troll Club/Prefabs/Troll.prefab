@@ -1317,7 +1317,7 @@ GameObject:
   - component: {fileID: 8558271810632527883}
   - component: {fileID: -5162783530007622961}
   m_Layer: 0
-  m_Name: TrollClub
+  m_Name: Troll
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   attackDistance: 3
   attackCooldown: 1
   damage: 1
-  droppedScrap: 3
+  droppedScrap: 5
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 10

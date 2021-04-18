@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 7310566008271744426}
   - component: {fileID: 441238265229253548}
   m_Layer: 0
-  m_Name: SlimePBR
+  m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
   attackDistance: 3
   attackCooldown: 1
   damage: 1
-  droppedScrap: 3
+  droppedScrap: 5
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 10

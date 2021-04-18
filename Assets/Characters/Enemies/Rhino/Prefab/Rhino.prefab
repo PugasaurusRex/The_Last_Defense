@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 1839365560295669049}
   - component: {fileID: -7254239888517874212}
   m_Layer: 0
-  m_Name: Rhino_PBR
+  m_Name: Rhino
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -828,7 +828,7 @@ MonoBehaviour:
   attackDistance: 3
   attackCooldown: 2
   damage: 4
-  droppedScrap: 7
+  droppedScrap: 10
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 10

@@ -1501,7 +1501,7 @@ GameObject:
   - component: {fileID: 505106772477927002}
   - component: {fileID: 135436745611751943}
   m_Layer: 0
-  m_Name: SoulEater
+  m_Name: Soul Eater
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1561,7 +1561,7 @@ MonoBehaviour:
   attackDistance: 4
   attackCooldown: 3
   damage: 9
-  droppedScrap: 10
+  droppedScrap: 12
   AttackPlayer: 0
   AttackTowers: 0
   ViewDistance: 15

@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: -4289487181826080201}
   - component: {fileID: -2092610335110048751}
   m_Layer: 0
-  m_Name: TurtleShellPBR
+  m_Name: Turtle Shell
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -841,7 +841,7 @@ MonoBehaviour:
   attackDistance: 2
   attackCooldown: 1
   damage: 1
-  droppedScrap: 3
+  droppedScrap: 5
   AttackPlayer: 1
   AttackTowers: 0
   ViewDistance: 10
