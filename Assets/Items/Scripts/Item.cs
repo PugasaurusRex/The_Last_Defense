@@ -51,7 +51,7 @@ public class Item : MonoBehaviour
         if(Time.timeScale != 0)
         {
             // Use if possible
-            if (usingItem && canUse && mag > 0)
+            if (usingItem && canUse && mag > 0 && !reloading)
             {
                 canUse = false;
                 PlayerInfo.Anim.SetBool("Shoot", true);
