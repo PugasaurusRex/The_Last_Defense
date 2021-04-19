@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Speaker = GetComponent<AudioSource>();
+        Speaker.volume = PlayerPrefs.GetFloat("volume", 1);
 
         Rig = this.GetComponent<Rigidbody>();
         Anim = this.GetComponent<Animator>();

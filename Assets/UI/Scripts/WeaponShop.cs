@@ -42,6 +42,7 @@ public class WeaponShop : MonoBehaviour
     void Start()
     {
         Speaker = GetComponent<AudioSource>();
+        Speaker.volume = PlayerPrefs.GetFloat("volume", 1);
 
         Player = GameObject.Find("Player");
         PlayerInfo = Player.GetComponent<PlayerController>();

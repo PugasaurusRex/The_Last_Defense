@@ -36,6 +36,7 @@ public class Item : MonoBehaviour
     public virtual void Start()
     {
         Speaker = GetComponent<AudioSource>();
+        Speaker.volume = PlayerPrefs.GetFloat("volume", 1);
 
         Player = GameObject.Find("Player");
         PlayerInfo = Player.GetComponent<PlayerController>();

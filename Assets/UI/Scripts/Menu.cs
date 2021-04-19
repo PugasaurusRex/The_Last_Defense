@@ -41,6 +41,8 @@ public class Menu : MonoBehaviour
     void Start()
     {
         Speaker = GetComponent<AudioSource>();
+        Speaker.volume = PlayerPrefs.GetFloat("volume", 1);
+
         Sources = FindObjectsOfType<AudioSource>();
 
         volumeSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volume", 1);
@@ -268,6 +270,7 @@ public class Menu : MonoBehaviour
         PlayerPrefs.SetFloat("volume", volumeSlider.GetComponent<Slider>().value);
         PlayerPrefs.Save();
 
+        Sources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource i in Sources)
         {
             i.volume = PlayerPrefs.GetFloat("volume", 1);

@@ -33,8 +33,7 @@ public class ProjectileScript : MonoBehaviour
     void Start()
     {
         Speaker = GetComponent<AudioSource>();
-
-
+        Speaker.volume = PlayerPrefs.GetFloat("volume", 1);
 
         Rig = this.GetComponent<Rigidbody>();
         Rig.velocity = this.transform.forward * speed;

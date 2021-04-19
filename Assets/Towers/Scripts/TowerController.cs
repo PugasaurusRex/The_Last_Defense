@@ -50,6 +50,7 @@ public class TowerController : MonoBehaviour
     void Start()
     {
         Speaker = GetComponent<AudioSource>();
+        Speaker.volume = PlayerPrefs.GetFloat("volume", 1);
 
         Wave = GameObject.Find("WaveController");
         WaveInfo = Wave.GetComponent<WaveController>();
