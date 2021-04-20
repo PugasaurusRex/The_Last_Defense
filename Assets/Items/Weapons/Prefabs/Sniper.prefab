@@ -486,7 +486,7 @@ MonoBehaviour:
   cost: 400
   reloadTime: 4
   rateOfFire: 1
-  damage: 25
+  damage: 20
   accuracy: 0
   description: Low rate of fire weapon that deals a lot of damage with perfect accuracy.
   healAmount: 0

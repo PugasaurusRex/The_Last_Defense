@@ -439,6 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gate: {fileID: 0}
   passGate: 1
+  avoidStun: 0
   target: {x: 0, y: 0, z: 0}
   attackDistance: 3
   attackCooldown: 1

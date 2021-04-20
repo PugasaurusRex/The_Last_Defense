@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject Gate;
     public bool passGate = true;
+    public bool avoidStun = false;
 
     GameObject TargetObject;
     public Vector3 target;
@@ -227,10 +228,17 @@ public class EnemyController : MonoBehaviour
 
     public IEnumerator Stun(float stunTime)
     {
-        float temp = myNav.speed;
-        myNav.speed = 1;
-        yield return new WaitForSeconds(stunTime);
-        myNav.speed = temp;
+        if(!avoidStun)
+        {
+            float temp = myNav.speed;
+            myNav.speed = 1;
+            yield return new WaitForSeconds(stunTime);
+            myNav.speed = temp;
+        }
+        else
+        {
+            yield return new WaitForSeconds(.1f);
+        }
     }
 
     public void SetTargetGoal()
